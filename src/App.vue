@@ -1,22 +1,25 @@
 <template>
   <div id="app">
+    <Sidebar />
     <router-view></router-view>
   </div>
 </template>
 
 <script>
+import Sidebar from '@/components/Sidebar'
 export default {
-  name: 'app'
+  name: 'app',
+  components: {Sidebar}
 }
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="sass">
+#app
+  font-family: $family-sans-serif
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+  color: $black
+  background: $white
+  min-height: 100vh
+  display: flex
 </style>
