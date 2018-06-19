@@ -2,7 +2,7 @@
   <div id="navbar">
     <nav>
       <router-link to="/" class="logo-container">
-        <img src="../assets/zk_logo_wide_gray.svg" alt="Žiga Krašovec">
+        <Logo />
       </router-link>
       <div class="social-links">
         <a href="https://www.facebook.com/zkrasovec" target="_blank" class="social-link"><i class="fab fa-facebook-f"></i></a>
@@ -31,8 +31,10 @@
 </template>
 
 <script>
+import Logo from '@/components/Logo'
 export default {
   name: 'Navbar',
+  components: {Logo},
   data() {
     return {
       menuOpen: false
@@ -73,7 +75,11 @@ nav
 .logo-container
   position: relative
   height: 100%
-  & > img
+  &:hover
+    & > svg
+      .cls-1
+        fill: $primary
+  & > svg
     max-height: 100%
     height: $navbar-height
 
