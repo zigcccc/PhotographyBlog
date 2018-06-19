@@ -13,7 +13,6 @@ export default {
 
 <style lang="sass" scoped>
 #page-container
-  margin-left: 200px
-  padding: 1em
+  padding: calc(#{$navbar-height} + 1em) 1em 0
   min-height: 10000px
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Sidebar />
+    <Navbar />
     <PageContainer>
       <router-view></router-view>
     </PageContainer>
@@ -8,21 +8,20 @@
 </template>
 
 <script>
-import Sidebar from '@/components/Sidebar'
+import Navbar from '@/components/Navbar'
 export default {
   name: 'app',
-  components: {Sidebar}
+  components: {Navbar}
 }
 </script>
 
 <style lang="sass">
 body
-  background: lighten($white, 2%)
+  background: $white
   min-height: 100vh
 #app
   font-family: $family-sans-serif
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
   color: $black
-  display: flex
 </style>
