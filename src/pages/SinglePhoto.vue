@@ -20,9 +20,9 @@ export default {
     getAllImages(){
       for (let category in images) {
         for (let image in images[category]) {
-          let image = images[category][image];
-          if (image.slug === this.$route.params.slug) {
-            this.image = image;
+          let singleImage = images[category][image];
+          if (singleImage.slug === this.$route.params.slug) {
+            this.image = singleImage;
           }
         }
       }
