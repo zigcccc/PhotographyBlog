@@ -13,7 +13,7 @@ export default new VueRouter({
 			component: Home
 		},
 		{
-			path: '/photos/:id',
+			path: '/photos/:slug',
 			name: 'SinglePhoto',
 			component: SinglePhoto
 		},

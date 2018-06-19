@@ -66,7 +66,7 @@ nav
   flex-direction: row
   justify-content: space-between
   align-items: center
-  padding: 1em 1em 0
+  padding: 1em 1em .5em
   position: fixed
   top: 0
   left: 0
