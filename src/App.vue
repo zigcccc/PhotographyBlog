@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <Sidebar />
-    <router-view></router-view>
+    <PageContainer>
+      <router-view></router-view>
+    </PageContainer>
   </div>
 </template>
 
@@ -14,12 +16,13 @@ export default {
 </script>
 
 <style lang="sass">
+body
+  background: lighten($white, 2%)
+  min-height: 100vh
 #app
   font-family: $family-sans-serif
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
   color: $black
-  background: $white
-  min-height: 100vh
   display: flex
 </style>
