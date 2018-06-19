@@ -1,0 +1,425 @@
+{
+  "studio": {
+    "predmeti": [
+      {
+        "id": 1,
+        "image": "/images/predmeti/image_01.jpg",
+        "title": "Steklenička v studiu",
+        "slug": "steklenicka-v-studiu",
+        "description": "Preprost, a zanimiv predmet. Slikano v studiu, na brezkončni mizici z osvetlitvijo od spodaj in nežno svetlobo s strani.",
+        "featured": false,
+        "tags": ["predmet", "studio"]
+      },
+      {
+        "id": 2,
+        "image": "/images/predmeti/image_02.jpg",
+        "title": "Cockta Black Tonic",
+        "slug": "cockta-black-tonic",
+        "description": "Močan kontrast med črno in belo površino, kjer steklenička stopi v ospredje. Rumena barva na etiketi lepo izstopi, čeprav je prisotna je v manjši meri.",
+        "featured": false,
+        "tags": ["predmet", "studio"]
+      },
+      {
+        "id": 3,
+        "image": "/images/predmeti/image_03.jpg",
+        "title": "Staropramen steklenica",
+        "slug": "staropramen-steklenica",
+        "description": "Zanimivi prelivi v ozadju kadra, ki niso vpadajoči omogočajo, da sicer povprečna steklenica",
+        "featured": false,
+        "tags": ["predmet", "studio"]
+      },
+      {
+        "id": 4,
+        "image": "/images/predmeti/image_04.jpg",
+        "title": "Kozmetika v jeseni",
+        "slug": "kozmetika-v-jeseni",
+        "description": "Prevladujoče rdečkasto obarvana scena spominja na jesensko vzdušje. Reflektivna površina ustvarja zanimivo sliko v kadru.",
+        "featured": true,
+        "tags": ["predmet", "studio"]
+      },
+      {
+        "id": 5,
+        "image": "/images/predmeti/image_05.jpg",
+        "title": "Sončna očala",
+        "slug": "soncna-ocala",
+        "description": "Preprosta scena z izrazitimi kontrasti, kjer se reflektivna površina sončnih očal lepo loči od difuzne površine lutke.",
+        "featured": false,
+        "tags": ["predmet", "studio"]
+      }
+    ],
+    "portreti_studio": [
+      {
+        "id": 6,
+        "image": "/images/portreti_studio/image_01.jpg",
+        "title": "Pogled v neznano",
+        "slug": "pogled-v-neznano",
+        "description": "Studijska fotografija, kjer je bil ujet trenutek zamišljenega pogleda modela.",
+        "featured": true,
+        "tags": ["Portret", "Studio"]
+      },
+      {
+        "id": 7,
+        "image": "/images/portreti_studio/image_02.jpg",
+        "title": "Resnost pri delu",
+        "slug": "resnost-pri-delu",
+        "description": "Pogled, usmerjen direktno v objektiv kamere in resen obraz ustvarjata močno vzdušje fotografije.",
+        "featured": false,
+        "tags": ["Portret", "Studio"]
+      },
+      {
+        "id": 8,
+        "image": "/images/portreti_studio/image_03.jpg",
+        "title": "S strani",
+        "slug": "s-strani",
+        "description": "Izrazito stransko orientirana fotografija, kjer model prek rame vzpostavi stik s fotografom.",
+        "featured": false,
+        "tags": ["Portret", "Studio"]
+      },
+      {
+        "id": 9,
+        "image": "/images/portreti_studio/image_04.jpg",
+        "title": "Smeh je pol zdravja",
+        "slug": "smeh-je-pol-zdravja",
+        "description": "Na sceni prevladuje sproščeno vzdušje, ki ga izžareva model. Nasmejan, navihan in sproščen obraz modela definirata to fotografijo.",
+        "featured": false,
+        "tags": ["Portret", "Studio"]
+      },
+      {
+        "id": 10,
+        "image": "/images/portreti_studio/image_05.jpg",
+        "title": "Svet je lep",
+        "slug": "svet-je-lep",
+        "description": "Povsem neformalen in nasmejan portret, ki navdihuje z radostjo, veseljem in srečo.",
+        "featured": false,
+        "tags": ["Portret", "Studio"]
+      }
+    ],
+    "figure": [
+      {
+        "id": 11,
+        "image": "/images/figure/image_01.jpg",
+        "title": "Skrivnostnost",
+        "slug": "skrivnostnost",
+        "description": "Model s tem, ko pogled odvrača od objektiva fotoaparata, ustvarja iluzijo skrivnostnosti v kadru.",
+        "featured": true,
+        "tags": ["Človeška figura", "Studio"]
+      },
+      {
+        "id": 12,
+        "image": "/images/figure/image_02.jpg",
+        "title": "Visoke petke",
+        "slug": "visoke-petke",
+        "description": "Prevladujoča vertikala na fotografiju pričara model izjemno visok, nadvladujoč in dominanten.",
+        "featured": false,
+        "tags": ["Človeška figura", "Studio"]
+      },
+      {
+        "id": 13,
+        "image": "/images/figure/image_03.jpg",
+        "title": "Resna scena",
+        "slug": "resna-scena",
+        "description": "Resnost in mrki pogled modela na fotografiji pričarata zanimivo napetost, kateri kljubuje nežna, topla svetloba.",
+        "featured": false,
+        "tags": ["Človeška figura", "Studio"]
+      },
+      {
+        "id": 14,
+        "image": "/images/figure/image_04.jpg",
+        "title": "Malo, pa vseeno veliko",
+        "slug": "malo-pa-vseeno-veliko",
+        "description": "Kadriranje na fotografiji, ki pušča veliko praznega prostora v zgornjem delu, ustvarja zanimivo iluzijo majhnosti modela.",
+        "featured": false,
+        "tags": ["Človeška figura", "Studio"]
+      },
+      {
+        "id": 15,
+        "image": "/images/figure/image_05.jpg",
+        "title": "Naravnost proti kameri",
+        "slug": "naravnost-proti-kameri",
+        "description": "Frontalno pozicioniran model, s pogledom direktno v objektiv kamere, vzpostavi močan stik z gledalcem.",
+        "featured": false,
+        "tags": ["Človeška figura", "Studio"]
+      }
+    ],
+    "akti": [
+      {
+        "id": 16,
+        "image": "/images/akti/image_01.jpg",
+        "title": "Dva v enem",
+        "slug": "dva-v-enem",
+        "description": "Kombinacija moškega in ženskega akta, ki v sceni ustvarjata zanimiv odnos med dvema telesoma.",
+        "featured": false,
+        "tags": ["Akt", "Studio"]
+      },
+      {
+        "id": 17,
+        "image": "/images/akti/image_02.jpg",
+        "title": "Z drugega kota",
+        "slug": "z-drugega-kota",
+        "description": "Nekoliko drugačno kadriranje in močne silhuete pričarajo posebne vzdušje ob gledanju fotografije.",
+        "featured": true,
+        "tags": ["Akt", "Studio"]
+      },
+      {
+        "id": 18,
+        "image": "/images/akti/image_03.jpg",
+        "title": "Z drugega kota",
+        "slug": "z-drugega-kota",
+        "description": "Nekoliko drugačno kadriranje in močne silhuete pričarajo posebne vzdušje ob gledanju fotografije.",
+        "featured": true,
+        "tags": ["Akt", "Studio"]
+      },
+      {
+        "id": 19,
+        "image": "/images/akti/image_04.jpg",
+        "title": "Z drugega kota",
+        "slug": "z-drugega-kota",
+        "description": "Nekoliko drugačno kadriranje in močne silhuete pričarajo posebne vzdušje ob gledanju fotografije.",
+        "featured": true,
+        "tags": ["Akt", "Studio"]
+      },
+      {
+        "id": 20,
+        "image": "/images/akti/image_05.jpg",
+        "title": "Z drugega kota",
+        "slug": "z-drugega-kota",
+        "description": "Nekoliko drugačno kadriranje in močne silhuete pričarajo posebne vzdušje ob gledanju fotografije.",
+        "featured": true,
+        "tags": ["Akt", "Studio"]
+      }
+    ],
+    "hrana": [
+      {
+        "id": 21,
+        "image": "/images/hrana/image_01.jpg",
+        "title": "Preprosto kosilo",
+        "slug": "preprosto-kosilo",
+        "description": "Tople barve in domačnost jedi lepo predstavljajo čare domače kuhinje.",
+        "featured": false,
+        "tags": ["Hrana"]
+      },
+      {
+        "id": 22,
+        "image": "/images/hrana/image_02.jpg",
+        "title": "Zajtrk prvakov",
+        "slug": "zajtrk-prvakov",
+        "description": "Preprosta scena, kjer prevladujejo tople, domače barve in okusnost sadežev.",
+        "featured": true,
+        "tags": ["Hrana"]
+      },
+      {
+        "id": 23,
+        "image": "/images/hrana/image_03.jpg",
+        "title": "Zdrav obrok",
+        "slug": "zdrav-obrok",
+        "description": "Rjavkasto obarvana scena s priokusom zdravega, domačega in okusnega obroka.",
+        "featured": false,
+        "tags": ["Hrana"]
+      },
+      {
+        "id": 24,
+        "image": "/images/hrana/image_04.jpg",
+        "title": "Z vseh koncev sveta",
+        "slug": "z-vseh-koncev-sveta",
+        "description": "Abstraktnost sicer povsem običajnih sestavin v kuhinji - začimb - fotografiji daje drugačen, bolj zanimiv prizvok.",
+        "featured": false,
+        "tags": ["Hrana"]
+      },
+      {
+        "id": 25,
+        "image": "/images/hrana/image_05.jpg",
+        "title": "Okusi italije",
+        "slug": "okusi-italije",
+        "description": "Italija je beseda, ki jo fotografija najbolje ponazarja, saj klasična scena s testeninami in mesninami spomni na to dovršeno kulinariko.",
+        "featured": false,
+        "tags": ["Hrana"]
+      }
+    ],
+    "portreti_tematski_sklop": [
+      {
+        "id": 26,
+        "image": "/images/portreti_tematski_sklop/image_01.jpg",
+        "title": "Otroška iskrenost",
+        "slug": "otroska-iskrenost",
+        "description": "Nedolžnost in iskrenost, ki je opazna na portretu, je lahko le produkt otroškega obraza.",
+        "featured": true,
+        "tags": ["Portreti", "Tematski sklop"]
+      },
+      {
+        "id": 27,
+        "image": "/images/portreti_tematski_sklop/image_02.jpg",
+        "title": "Odsev v očeh",
+        "slug": "odsev-v-oceh",
+        "description": "Izrazit detajl očesa, v katerem se lepo reflektira svetloba, kar daje kontrast sicer nereflektivni koži in lasem.",
+        "featured": false,
+        "tags": ["Portreti", "Tematski sklop"]
+      },
+      {
+        "id": 28,
+        "image": "/images/portreti_tematski_sklop/image_03.jpg",
+        "title": "Dejmo ga, ne glejmo ga",
+        "slug": "dejmo-ga-ne-glejmo-ga",
+        "description": "Zamišljen portret z izrazitimi kontrasti med svetlimi in temnimi deli fotografije.",
+        "featured": false,
+        "tags": ["Portreti", "Tematski sklop"]
+      },
+      {
+        "id": 29,
+        "image": "/images/portreti_tematski_sklop/image_04.jpg",
+        "title": "Pustni karneval",
+        "slug": "pustni-karneval",
+        "description": "Močni kontrasti in zanimiva scena dajeta fotografiji po eni strani razgibanost, po drugi pa skrivnostnost in zamišljenost.",
+        "featured": false,
+        "tags": ["Portreti", "Tematski sklop"]
+      },
+      {
+        "id": 30,
+        "image": "/images/portreti_tematski_sklop/image_05.jpg",
+        "title": "Žalosten pogled",
+        "slug": "zalosten-pogled",
+        "description": "Skrivnosten, nekoliko žalosten pogled, skrit za steno narekuje fotografiji noto otožnosti in odmaknjenosti.",
+        "featured": false,
+        "tags": ["Portreti", "Tematski sklop"]
+      }
+    ],
+    "ljudje_na_ulici": [
+      {
+        "id": 31,
+        "image": "/images/ljudje_na_ulici/image_01.jpg",
+        "title": "Digitalni turizem",
+        "slug": "digitalni-turizem",
+        "description": "Ujeta v trenutku, zamegljenost oziroma premaknjenost fotografije še potencira dinamičnost, ki je že tako prisotna.",
+        "featured": false,
+        "tags": ["Ljudje na ulici", "Tematski sklop"]
+      },
+      {
+        "id": 32,
+        "image": "/images/ljudje_na_ulici/image_02.jpg",
+        "title": "Pogled skozi objektiv",
+        "slug": "pogled-skozi-objektiv",
+        "description": "Stransko kadriranje, močni kontrasti in dinamičnost izražajo energijo, ki jo fotografija nosi.",
+        "featured": false,
+        "tags": ["Ljudje na ulici", "Tematski sklop"]
+      },
+      {
+        "id": 33,
+        "image": "/images/ljudje_na_ulici/image_03.jpg",
+        "title": "Ulice Ljubljane",
+        "slug": "ulice-ljubljane",
+        "description": "Na fotografiji je prisotnega veliko dogajanja, gibanja, kar lepo predstavlja živahnost mestnih ulic v dnevnih urah.",
+        "featured": true,
+        "tags": ["Ljudje na ulici", "Tematski sklop"]
+      },
+      {
+        "id": 34,
+        "image": "/images/ljudje_na_ulici/image_04.jpg",
+        "title": "Pot v neskončnost",
+        "slug": "pot-v-neskončnost",
+        "description": "Izrazite so predvsem perspektivne linije, ki so lepo vidne v poteku mosta. Reflektivne stene mostu dajejo zanimiv vtis neskončnosti.",
+        "featured": false,
+        "tags": ["Ljudje na ulici", "Tematski sklop"]
+      },
+      {
+        "id": 35,
+        "image": "/images/ljudje_na_ulici/image_05.jpg",
+        "title": "Kamen na kamen palača",
+        "slug": "kamen-na-kamen-palaca",
+        "description": "Fotografija, ujeta v trenutku izrazite akcije in angažiranosti objekta na sceni.",
+        "featured": false,
+        "tags": ["Ljudje na ulici", "Tematski sklop"]
+      }
+    ],
+    "poljubne": [
+      {
+        "id": 36,
+        "image": "/images/poljubne/image_01.jpg",
+        "title": "Spomini na roki",
+        "slug": "spomini-na-roki",
+        "description": "Detajlno kadriranje in zelo močni kontrasti dajejo jasen fokus in intenziteto fotografiji.",
+        "featured": false,
+        "tags": ["Poljubna"]
+      },
+      {
+        "id": 37,
+        "image": "/images/poljubne/image_02.jpg",
+        "title": "Megleno doživetje",
+        "slug": "megleno-dozivetje",
+        "description": "Meglenost v daljnem kadru in jasnost ter močni kontrasti v sprednjem v kombinaciji s črno-belo fotografijo pričarajo posebno vzdušje.",
+        "featured": true,
+        "tags": ["Poljubna"]
+      },
+      {
+        "id": 38,
+        "image": "/images/poljubne/image_03.jpg",
+        "title": "Trenutek za spomine",
+        "slug": "trenutek-za-spomine",
+        "description": "Ujetost trenutka v objektiv, ki odraža večnost, ki jo fotografija kot taka predstavlja.",
+        "featured": false,
+        "tags": ["Poljubna"]
+      },
+      {
+        "id": 39,
+        "image": "/images/poljubne/image_04.jpg",
+        "title": "Morske radosti",
+        "slug": "morske-radosti",
+        "description": "Športna fotografija, kjer je vseprisotna dinamičnost in akcija, ker še posebaj dobro ponazarjajo razpršene vodne kapljice.",
+        "featured": false,
+        "tags": ["Poljubna"]
+      },
+      {
+        "id": 40,
+        "image": "/images/poljubne/image_05.jpg",
+        "title": "Umetnost na ulicah",
+        "slug": "umetnost-na-ulicah",
+        "description": "Močni kontrasti lepo sovpadajo z močno sporočilnostjo, ki jo nosijo motivi na fotografiji.",
+        "featured": false,
+        "tags": ["Poljubna"]
+      },
+      {
+        "id": 41,
+        "image": "/images/poljubne/image_06.jpg",
+        "title": "Cesta v mraku",
+        "slug": "cesta-v-mraku",
+        "description": "Abstraknta fotografija, zajeta z zelo dolgim ekspozicijskim časom, ustvarja zanimive oblike, ki jih orisujejo luči avtomobilov.",
+        "featured": false,
+        "tags": ["Poljubna"]
+      },
+      {
+        "id": 42,
+        "image": "/images/poljubne/image_07.jpg",
+        "title": "Motoristična poezija",
+        "slug": "motoristicna-poezija",
+        "description": "Jasnost, kontrastnost in pa zanimivi motivi na čeladah ustvarjajo zanimivo kompozicijo.",
+        "featured": false,
+        "tags": ["Poljubna"]
+      },
+      {
+        "id": 43,
+        "image": "/images/poljubne/image_08.jpg",
+        "title": "Odsev narave",
+        "slug": "odsev-narave",
+        "description": "Zeleni motivi in pa refleksija vodnih kapljic dajejo vtis življenja, narave in čistosti.",
+        "featured": false,
+        "tags": ["Poljubna"]
+      },
+      {
+        "id": 44,
+        "image": "/images/poljubne/image_09.jpg",
+        "title": "Morje, sonce in šport",
+        "slug": "morje-sonce-in-šport",
+        "description": "Tople barve, dinamika in napetost objektov ustvarjajo športno, aktivno vzdušje.",
+        "featured": false,
+        "tags": ["Poljubna"]
+      },
+      {
+        "id": 45,
+        "image": "/images/poljubne/image_10.jpg",
+        "title": "Svet je lepši v barvah",
+        "slug": "svet-je-lepši-v-barvah",
+        "description": "Izrazito široka barvna paleta, ki nosi močne, žive in intenzivne barve pričara čarobno atmosfero v urbanem svetu.",
+        "featured": false,
+        "tags": ["Poljubna"]
+      }
+    ]
+  }
+}

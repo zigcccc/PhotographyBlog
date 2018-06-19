@@ -75,16 +75,14 @@ nav
 .logo-container
   position: relative
   height: 100%
-  &:hover
-    & > svg
-      .cls-1
-        fill: $primary
   & > svg
     max-height: 100%
     height: $navbar-height
 
 .social-links
   display: flex
+  @media screen and (max-width: 768px)
+    display: none
   .social-link
     background: $black
     border-radius: 50%
@@ -151,7 +149,7 @@ nav
   align-items: center
   transform: translateY(-250%) scale(4)
   opacity: 0
-  +bounceTransition(750ms)
+  +quickEaseTransition(500ms)
   &.menu-open
     transform: translateY(0) scale(1)
     opacity: 1
@@ -190,6 +188,9 @@ nav
     padding: 1em 0
     text-transform: uppercase
     +bounceTransition(400ms)
+    @media screen and (max-width: 768px)
+      font-size: 1.5em
+      padding: .5em 0
     &:hover
       transform: scale(1.25)
 
