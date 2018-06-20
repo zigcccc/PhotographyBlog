@@ -2,7 +2,7 @@
   <div id="navbar">
     <nav>
       <router-link to="/" class="logo-container">
-        <Logo />
+        <logo />
       </router-link>
       <div class="social-links">
         <a href="https://www.facebook.com/zkrasovec" target="_blank" class="social-link"><i class="fab fa-facebook-f"></i></a>
@@ -70,7 +70,8 @@ nav
   position: fixed
   top: 0
   left: 0
-  background: $white
+  z-index: 1000
+  //background: $white
 
 .logo-container
   position: relative
@@ -81,6 +82,7 @@ nav
 
 .social-links
   display: flex
+  position: relative
   @media screen and (max-width: 768px)
     display: none
   .social-link
@@ -142,6 +144,7 @@ nav
   bottom: 0
   left: 0
   right: 0
+  z-index: 10000
   background: transparentize($primary, 0)
   display: flex
   flex-direction: column

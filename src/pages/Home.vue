@@ -1,16 +1,6 @@
 <template>
   <div id="home-page">
-    <Hero />
-    <div v-for="image in predmeti" :key="image.id">
-      <router-link :to="`/photos/${image.slug}`">
-        <img :src="image.image" :alt="image.title">
-      </router-link>
-    </div>
-    <div v-for="image in akti" :key="image.id">
-      <router-link :to="`/photos/${image.slug}`">
-        <img :src="image.image" :alt="image.title">
-      </router-link>
-    </div>
+    <hero />
   </div>
 </template>
 
