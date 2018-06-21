@@ -95,7 +95,7 @@ export default {
 .album-preview
   position: relative
   z-index: 10
-  margin-bottom: 20vh !important
+  padding-bottom: 20vh
   &.is-inverted
     color: $primary
     .image-container

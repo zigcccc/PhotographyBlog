@@ -16,6 +16,8 @@ export default {
 </script>
 
 <style lang="sass">
+html
+  background: $white
 body
   background: $white
   min-height: 100vh

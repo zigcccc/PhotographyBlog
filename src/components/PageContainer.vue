@@ -15,7 +15,6 @@ export default {
 <style lang="sass" scoped>
 #page-container
   padding: calc(#{$navbar-height} + 1em) 0 0
-  min-height: 10000px
   posiition: relative
 
 #vertical-line
