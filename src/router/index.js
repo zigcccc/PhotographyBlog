@@ -1,6 +1,7 @@
 import VueRouter from 'vue-router';
 
 import Home from '@/pages/Home';
+import SingleAlbum from '@/pages/SingleAlbum';
 import SinglePhoto from '@/pages/SinglePhoto';
 import NotFound from '@/pages/NotFound';
 
@@ -13,7 +14,12 @@ export default new VueRouter({
 			component: Home
 		},
 		{
-			path: '/photos/:slug',
+			path: '/:albumId',
+			name: 'SingleAlbum',
+			component: SingleAlbum
+		},
+		{
+			path: '/:albumId/:slug',
 			name: 'SinglePhoto',
 			component: SinglePhoto
 		},
