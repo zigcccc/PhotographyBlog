@@ -87,7 +87,6 @@ export default {
     position: absolute
     bottom: 0
     transform: translateX(-25%)
-    -webkit-svg-shadow: $shadow-3
     @media screen and (max-width: 768px)
       bottom: 5%
 

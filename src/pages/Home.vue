@@ -1,27 +1,28 @@
 <template>
   <div id="home-page">
     <hero />
+    <div id="albums-container">
+      <div v-for="(album, key, index) in albums" :key="key" class="album-container">
+        <album-preview v-for="image in album.images" :key="image.id" v-if="image.featured" :title="key" :featuredImage="image" :index="index + 1">{{ album.album_desc }}</album-preview>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
   import Hero from '@/components/Hero'
-  import { akti, figure, hrana, ljudje_na_ulici, poljubne, portreti_studio, portreti_tematski_sklop, predmeti } from '@/structure/images.json'
+  import AlbumPreview from '@/components/AlbumPreview'
 
   export default {
     name: 'Home',
-    components: {Hero},
+    components: {Hero, AlbumPreview},
     data() {
       return {
-        akti: akti,
-        predmeti: predmeti,
-        figure: figure,
-        hrana: hrana,
-        ljudje_na_ulici: ljudje_na_ulici,
-        poljubne: poljubne,
-        portreti_studio: portreti_studio,
-        portreti_tematski_sklop: portreti_tematski_sklop
+        albums: []
       }
+    },
+    created(){
+      this.albums = this.$store.state.albums
     }
   }
 </script>
@@ -33,5 +34,7 @@ h1
 img
   max-width: 100%
   height: auto
+#albums-container
+  margin-top: 10vh
 </style>
 

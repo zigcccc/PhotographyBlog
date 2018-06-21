@@ -1,5 +1,5 @@
 <template>
-  <div class="columns">
+  <div id="hero" class="columns">
     <div class="column">
       <hero-animation />
     </div>
@@ -17,14 +17,25 @@ import HeroAnimation from '@/components/HeroAnimation'
 export default {
   name: 'Hero',
   components: {HeroAnimation},
+  data(){
+    return {
+      heroHeight: 0
+    }
+  },
   methods: {
     scrollPastHero(){
       window.scroll({
-        top: window.innerHeight * 1.5,
+        top: this.heroHeight * 1.2,
         left: 0,
         behavior: 'smooth'
       })
+    },
+    getHeroHeight(){
+      return this.$el.clientHeight;
     }
+  },
+  mounted(){
+    this.heroHeight = this.getHeroHeight()
   }
 }
 </script>

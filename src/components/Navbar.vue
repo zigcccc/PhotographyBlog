@@ -21,11 +21,7 @@
         <span></span>
         <span></span>
       </div>
-      <router-link to="#">Category 1</router-link>
-      <router-link to="#">Category 2</router-link>
-      <router-link to="#">Category 3</router-link>
-      <router-link to="#">Category 4</router-link>
-      <router-link to="#">Category 5</router-link>
+      <router-link v-for="album in albums" :key="album.slug" :to="album.slug">{{ album.name }}</router-link>
     </div>
   </div>
 </template>
@@ -37,7 +33,8 @@ export default {
   components: {Logo},
   data() {
     return {
-      menuOpen: false
+      menuOpen: false,
+      albums: []
     }
   },
   methods: {
@@ -51,6 +48,7 @@ export default {
         this.toggleMenu()
       }
     })
+    this.albums = this.$store.getters.albumsNameAndSlug
   },
   destroyed() {
     window.removeEventListener('keydown', this.toggleMenu)
