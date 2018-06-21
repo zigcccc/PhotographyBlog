@@ -29,4 +29,10 @@ p
   font-family: $family-sans-serif
   line-height: 1.618
   color: lighten($black, 20%)
+.column
+  &.is-vertical-aligned
+    display: flex !important
+    flex-direction: column
+    justify-content: center
+    position: relative
 </style>

@@ -25,7 +25,7 @@ export default {
   methods: {
     scrollPastHero(){
       window.scroll({
-        top: this.heroHeight * 1.2,
+        top: window.innerHeight - (this.heroHeight / 2),
         left: 0,
         behavior: 'smooth'
       })
@@ -45,10 +45,6 @@ export default {
     padding: 1em
     .column
       &.is-vertical-aligned
-        display: flex
-        flex-direction: column
-        justify-content: center
-        position: relative
         z-index: 1000
         @media screen and (max-width: 768px)
           background: $white

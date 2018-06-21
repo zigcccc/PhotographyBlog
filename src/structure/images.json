@@ -17,7 +17,7 @@
         "title": "Cockta Black Tonic",
         "slug": "cockta-black-tonic",
         "description": "Močan kontrast med črno in belo površino, kjer steklenička stopi v ospredje. Rumena barva na etiketi lepo izstopi, čeprav je prisotna je v manjši meri.",
-        "featured": false,
+        "featured": true,
         "tags": ["predmet", "studio"]
       },
       {
@@ -35,7 +35,7 @@
         "title": "Kozmetika v jeseni",
         "slug": "kozmetika-v-jeseni",
         "description": "Prevladujoče rdečkasto obarvana scena spominja na jesensko vzdušje. Reflektivna površina ustvarja zanimivo sliko v kadru.",
-        "featured": true,
+        "featured": false,
         "tags": ["predmet", "studio"]
       },
       {
@@ -108,7 +108,7 @@
         "title": "Skrivnostnost",
         "slug": "skrivnostnost",
         "description": "Model s tem, ko pogled odvrača od objektiva fotoaparata, ustvarja iluzijo skrivnostnosti v kadru.",
-        "featured": true,
+        "featured": false,
         "tags": ["Človeška figura", "Studio"]
       },
       {
@@ -135,7 +135,7 @@
         "title": "Malo, pa vseeno veliko",
         "slug": "malo-pa-vseeno-veliko",
         "description": "Kadriranje na fotografiji, ki pušča veliko praznega prostora v zgornjem delu, ustvarja zanimivo iluzijo majhnosti modela.",
-        "featured": false,
+        "featured": true,
         "tags": ["Človeška figura", "Studio"]
       },
       {

@@ -35,6 +35,6 @@ img
   max-width: 100%
   height: auto
 #albums-container
-  margin-top: 10vh
+  margin-top: 25vh
 </style>
 
