@@ -23,6 +23,7 @@ export default {
   width: 2px
   background: $black
   position: fixed
+  z-index: 1000
   height: 90vh
   top: calc(#{$navbar-height} + 1em)
   right: calc(1em + 22px)

@@ -70,7 +70,7 @@ nav
   position: fixed
   top: 0
   left: 0
-  z-index: 1000
+  z-index: 10000
   //background: $white
 
 .logo-container
@@ -82,7 +82,6 @@ nav
 
 .social-links
   display: flex
-  position: relative
   @media screen and (max-width: 768px)
     display: none
   .social-link

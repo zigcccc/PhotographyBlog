@@ -25,18 +25,17 @@ export default {
         transform: 'scale(.85) translateY(0)'
       },
       photographerStyle: {
-        transform: 'translateY(0)'
+        transform: 'translateY(50px)'
       }
     }
   },
   methods: {
     smudgeParallax(scrollTop){
-      let offset1 = Math.floor(scrollTop / 2);
-      let offset2 = Math.floor(scrollTop / 1.5);
+      let offset1 = Math.floor(scrollTop / 2.25);
       if (scrollTop < window.innerHeight * 2) {
         this.smudge1style.transform = `scale(1.5) translateY(${offset1}px)`;
         this.smudge2style.transform = `scale(.85) translateY(${offset1}px)`;
-        this.photographerStyle.transform = `translateY(${offset2}px)`;
+        this.photographerStyle.transform = `translateY(${50 + offset1}px)`;
       }
     }
   },
@@ -83,12 +82,14 @@ export default {
     z-index: 1
     animation: droneAnimation 7.5s infinite cubic-bezier(0.785, 0.135, 0.15, 0.86);
   #photographer
-    width: 45%
-    height: auto
+    width: auto
+    height: 75%
     position: absolute
     bottom: 0
     transform: translateX(-25%)
     -webkit-svg-shadow: $shadow-3
+    @media screen and (max-width: 768px)
+      bottom: 5%
 
 @keyframes droneAnimation
   0%

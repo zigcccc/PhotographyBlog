@@ -24,4 +24,9 @@ body
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
   color: $black
+
+p
+  font-family: $family-sans-serif
+  line-height: 1.618
+  color: lighten($black, 20%)
 </style>
