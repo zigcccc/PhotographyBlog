@@ -102,6 +102,9 @@ export default {
       .image-border-offset
         left: 7.5%
         border-color: $primary
+      & > img
+        &:hover
+          transform: translate(20px, -20px)
     .album-preview-title
       text-shadow: 0 5px 10px transparentize($primary, .75)
       &::after
@@ -128,6 +131,10 @@ export default {
       position: relative
       z-index: 10
       box-shadow: $shadow-4
+      +quickEaseTransition(400ms)
+      &:hover
+        transform: translate(-20px, -20px)
+        box-shadow: $shadow-5
 
   .is-vertical-aligned
     padding: 2em

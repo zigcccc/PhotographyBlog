@@ -35,15 +35,16 @@ export default {
     smudgeParallax(scrollTop){
       let offset1 = Math.floor(scrollTop / 2.25);
       if (scrollTop < window.innerHeight * 2) {
-        this.smudge1style.transform = `scale(1.5) translateY(${offset1}px)`;
-        this.smudge2style.transform = `scale(.85) translateY(${offset1}px)`;
-        this.photographerStyle.transform = `translateY(${50 + offset1}px)`;
+        this.smudge1style.transform = `scale(1.5) translate3d(0, ${offset1}px, 0)`;
+        this.smudge2style.transform = `scale(.85) translate3d(0, ${offset1}px, 0)`;
+        this.photographerStyle.transform = `translate3d(0, ${50 + offset1}px, 0)`;
       }
     }
   },
   created(){
     document.addEventListener('scroll', e => {
-      _.throttle(this.smudgeParallax(e.target.scrollingElement.scrollTop), 100)
+      //_.throttle(this.smudgeParallax(e.target.scrollingElement.scrollTop), 100)
+      this.smudgeParallax(e.target.scrollingElement.scrollTop)
     })
   },
   destroyed(){

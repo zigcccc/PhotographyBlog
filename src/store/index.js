@@ -45,7 +45,14 @@ const store = new Vuex.Store({
 			}
 			return output;
 		},
-		getSpecificAlbum: state => name => {}
+		getSpecificAlbum: state => albumId => {
+			for (let album in state.albums) {
+				let albumSlug = album.split('_').join('-');
+				if (albumSlug === albumId) {
+					return state.albums[album];
+				}
+			}
+		}
 	},
 	setters: {}
 });
