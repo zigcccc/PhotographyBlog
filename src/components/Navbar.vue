@@ -21,7 +21,7 @@
         <span></span>
         <span></span>
       </div>
-      <router-link v-for="album in albums" :key="album.slug" :to="album.slug">{{ album.name }}</router-link>
+      <router-link @click.native="toggleMenu" v-for="album in albums" :key="album.slug" :to="album.slug">{{ album.name }}</router-link>
     </div>
   </div>
 </template>
