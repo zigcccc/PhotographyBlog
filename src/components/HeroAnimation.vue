@@ -12,7 +12,6 @@
 </template>
 
 <script>
-import _ from 'underscore'
 import Photographer from '@/components/Photographer'
 
 export default {
@@ -43,7 +42,6 @@ export default {
   },
   created(){
     document.addEventListener('scroll', e => {
-      //_.throttle(this.smudgeParallax(e.target.scrollingElement.scrollTop), 100)
       this.smudgeParallax(e.target.scrollingElement.scrollTop)
     })
   },
