@@ -131,7 +131,7 @@ export default {
       position: relative
       z-index: 10
       box-shadow: $shadow-4
-      +quickEaseTransition(400ms)
+      +bounceTransition(400ms)
       &:hover
         transform: translate(-20px, -20px)
         box-shadow: $shadow-5

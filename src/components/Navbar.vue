@@ -150,6 +150,7 @@ nav
   transform: translateY(-250%) scale(4)
   opacity: 0
   +quickEaseTransition(500ms)
+  overflow-y: scroll
   &.menu-open
     transform: translateY(0) scale(1)
     opacity: 1
@@ -184,7 +185,7 @@ nav
   & > a
     color: $black
     font-weight: 900
-    font-size: 2em
+    font-size: 1.5em
     padding: 1em 0
     text-transform: uppercase
     +bounceTransition(400ms)
