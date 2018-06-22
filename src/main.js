@@ -1,6 +1,7 @@
 import Vue from 'vue/dist/vue';
 import VueRouter from 'vue-router';
 import VueAnalytics from 'vue-analytics';
+import Meta from 'vue-meta';
 import App from './App.vue';
 import router from '@/router';
 import store from '@/store';
@@ -16,6 +17,7 @@ Vue.use(VueAnalytics, {
 	checkDuplicatedScript: true,
 	router
 });
+Vue.use(Meta);
 
 Vue.component('PageContainer', PageContainer);
 Vue.component('MyButton', MyButton);

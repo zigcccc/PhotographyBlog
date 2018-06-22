@@ -25,10 +25,16 @@ const store = new Vuex.Store({
 			portreti_tematski_sklop,
 			ljudje_na_ulici,
 			poljubne
-		}
+		},
+		siteDescription:
+			'Predstavitev fotografskih del v okviru predmeta fotografija2 na Naravoslovno tehnični fakulteti v Ljubljani.'
 	},
 	actions: {},
-	mutations: {},
+	mutations: {
+		updateDescription(state, desc) {
+			state.siteDescription = desc;
+		}
+	},
 	getters: {
 		albumsNameAndSlug: state => {
 			let output = [];

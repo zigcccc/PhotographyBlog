@@ -23,6 +23,7 @@
     },
     created(){
       this.albums = this.$store.state.albums
+      this.$store.commit('updateDescription', 'Predstavitev fotografskih del v okviru predmeta fotografija2 na Naravoslovno tehnični fakulteti v Ljubljani.')
     }
   }
 </script>
