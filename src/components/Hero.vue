@@ -45,6 +45,7 @@ export default {
     padding: 1em
     .column
       &.is-vertical-aligned
+        justify-content: flex-end
         z-index: 1000
         @media screen and (max-width: 768px)
           background: $white
@@ -52,6 +53,7 @@ export default {
         font-family: $family-serif
         font-weight: 900
         font-size: 2.75em
+        margin-top: 150px
         @media screen and (max-width: 768px)
           font-size: 2em
       h2

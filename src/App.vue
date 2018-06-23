@@ -54,6 +54,7 @@ html
 body
   background: $white
   min-height: 100vh
+  overflow-x: hidden
 #app
   font-family: $family-sans-serif
   -webkit-font-smoothing: antialiased

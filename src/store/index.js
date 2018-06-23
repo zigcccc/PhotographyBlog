@@ -29,7 +29,11 @@ const store = new Vuex.Store({
 		siteDescription:
 			'Predstavitev fotografskih del v okviru predmeta fotografija2 na Naravoslovno tehnični fakulteti v Ljubljani.'
 	},
-	actions: {},
+	actions: {
+		updateDescription({ commit }, payload) {
+			commit('updateDescription', payload);
+		}
+	},
 	mutations: {
 		updateDescription(state, desc) {
 			state.siteDescription = desc;

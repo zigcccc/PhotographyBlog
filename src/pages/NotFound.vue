@@ -6,7 +6,11 @@
 
 <script>
 export default {
-  name: 'NotFound'
+  name: 'NotFound',
+  created(){
+    document.title = 'Iskana stran ne obstaja - Fotografija :: Ziga Krasovec ✌️'
+    this.$store.dispatch('updateDescription', 'Predstavitev fotografskih del v okviru predmeta fotografija2 na Naravoslovno tehnični fakulteti v Ljubljani.')
+  }
 }
 </script>
 

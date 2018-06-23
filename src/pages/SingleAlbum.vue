@@ -28,7 +28,7 @@ export default {
       router.push({name: 'NotFound'})
     }
     document.title = this.albumName() + ' - Fotografija :: Ziga Krasovec ✌️'
-    this.$store.commit('updateDescription', this.album.album_desc)
+    this.$store.dispatch('updateDescription', this.album.album_desc)
   }
 }
 </script>
