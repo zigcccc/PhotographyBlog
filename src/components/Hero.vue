@@ -45,7 +45,7 @@ export default {
     padding: 1em
     .column
       &.is-vertical-aligned
-        justify-content: flex-end
+        justify-content: center
         z-index: 1000
         @media screen and (max-width: 768px)
           background: $white

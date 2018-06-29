@@ -4,7 +4,9 @@
       <div class="column">
         <div class="image-container">
           <div class="image-border-offset"></div>
-          <img :src="image" :alt="imageAlt">
+          <router-link :to="albumSlug()">
+            <img :src="image" :alt="imageAlt">
+          </router-link>
         </div>
       </div>
       <div class="column is-vertical-aligned">
@@ -30,7 +32,9 @@
       <div class="column">
         <div class="image-container">
           <div class="image-border-offset"></div>
-          <img :src="image" :alt="imageAlt">
+          <router-link :to="albumSlug()">
+            <img :src="image" :alt="imageAlt">
+          </router-link>
         </div>
       </div>
     </div>
@@ -102,7 +106,7 @@ export default {
       .image-border-offset
         left: 7.5%
         border-color: $primary
-      & > img
+      & > a img
         &:hover
           transform: translate(20px, -20px)
     .album-preview-title
@@ -126,15 +130,17 @@ export default {
       top: -10%
       left: -7.5%
       border: 20px solid $black
-    & > img
-      object-fit: cover
-      position: relative
-      z-index: 10
-      box-shadow: $shadow-4
-      +bounceTransition(400ms)
-      &:hover
-        transform: translate(-20px, -20px)
-        box-shadow: $shadow-5
+    & > a
+      display: flex 
+      & > img
+        object-fit: cover
+        position: relative
+        z-index: 10
+        box-shadow: $shadow-4
+        +bounceTransition(400ms)
+        &:hover
+          transform: translate(-20px, -20px)
+          box-shadow: $shadow-5
 
   .is-vertical-aligned
     padding: 2em

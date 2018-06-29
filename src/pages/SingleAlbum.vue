@@ -1,7 +1,10 @@
 <template>
   <div v-if="album" id="single-album">
-    <div class="container">
-      <album-hero :title="albumName()" :desc="album.album_desc" />
+    <album-hero :title="albumName()" :desc="album.album_desc" />
+    <div class="album-images">
+      <div v-for="image in album.images" :key="image.id">
+        {{ image.title }}
+      </div>
     </div>
   </div>
 </template>
@@ -35,5 +38,9 @@ export default {
 
 <style lang="sass" scoped>
 #single-album
+  padding: 0 2em
   min-height: 2000px
+
+.album-images
+  margin-top: 200px
 </style>
