@@ -173,27 +173,27 @@
       {
         "id": 18,
         "image": "/images/akti/image_03.jpg",
-        "title": "Z drugega kota",
-        "slug": "z-drugega-kota",
-        "description": "Nekoliko drugačno kadriranje in močne silhuete pričarajo posebne vzdušje ob gledanju fotografije.",
+        "title": "Dominanca",
+        "slug": "dominanca",
+        "description": "Izjemno izravnana poza modela in močne, ostre sence pričarajo resno, mogoče celo vzišeno vzdušje na sceni.",
         "featured": false,
         "tags": ["Akt", "Studio"]
       },
       {
         "id": 19,
         "image": "/images/akti/image_04.jpg",
-        "title": "Z drugega kota",
-        "slug": "z-drugega-kota",
-        "description": "Nekoliko drugačno kadriranje in močne silhuete pričarajo posebne vzdušje ob gledanju fotografije.",
+        "title": "Umirjen pogled",
+        "slug": "umirjen-pogled",
+        "description": "Izjemno močni kontrasti med svetlimi in temnimi toni nasprotujejo sicer umirjenem položaju modela.",
         "featured": false,
         "tags": ["Akt", "Studio"]
       },
       {
         "id": 20,
         "image": "/images/akti/image_05.jpg",
-        "title": "Z drugega kota",
-        "slug": "z-drugega-kota",
-        "description": "Nekoliko drugačno kadriranje in močne silhuete pričarajo posebne vzdušje ob gledanju fotografije.",
+        "title": "V sožitju z naravo",
+        "slug": "v-sozitju-z-naravo",
+        "description": "Stranska osvetlitev, ki ustvarja zanimivo igro senc na sceni, kjer med drugim v ospredje stopi tudi pajek kot faktor drugačnosti.",
         "featured": false,
         "tags": ["Akt", "Studio"]
       }

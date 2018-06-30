@@ -147,13 +147,15 @@ nav
   flex-direction: column
   justify-content: center
   align-items: center
-  transform: translateY(-250%) scale(4)
+  transform: translate3d(0,-250%,0) scale(4) rotate(90deg)
   opacity: 0
+  visibility: hidden
   +quickEaseTransition(500ms)
   overflow-y: scroll
   &.menu-open
-    transform: translateY(0) scale(1)
+    transform: translate3d(0,0,0) scale(1) rotate(0)
     opacity: 1
+    visibility: visible
     .menu-btn
       opacity: 1
       visibility: visible

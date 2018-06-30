@@ -73,6 +73,8 @@ export default {
   #smudge1
     margin-top: -25%
     z-index: 2
+  #smudge2
+    //margin-top: -15%
 
 .title-container
   margin-top: 150px
