@@ -17,7 +17,9 @@ export default {
   components: {AlbumHero, ImagePreview},
   data(){
     return {
-      album: null
+      album: null,
+      prevAlbum: null,
+      nextAlbum: null
     }
   },
   computed: {
@@ -34,6 +36,8 @@ export default {
       if (!this.album) {
         router.push({name: 'NotFound'})
       }
+      this.prevAlbum = this.$store.getters.getPreviousAlbum(this.$route.params.albumId)
+      this.nextAlbum = this.$store.getters.getNextAlbum(this.$route.params.albumId)
       document.title = this.albumName() + ' - Fotografija :: Ziga Krasovec ✌️'
       this.$store.dispatch('updateDescription', this.album.album_desc)
     }

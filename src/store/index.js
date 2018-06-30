@@ -62,6 +62,46 @@ const store = new Vuex.Store({
 					return state.albums[album];
 				}
 			}
+		},
+		getPreviousAlbum: state => albumId => {
+			let index = null;
+			let albumsArr = Object.keys(state.albums);
+			albumsArr.forEach((album, i) => {
+				let albumSlug = album.split('_').join('-');
+				if (albumSlug === albumId) {
+					index = i;
+				}
+			});
+			let prevAlbum = albumsArr[index - 1];
+			if (prevAlbum) {
+				return {
+					albumName: prevAlbum
+						.split('_')
+						.join(' ')
+						.capitalize(),
+					albumSlug: prevAlbum.split('_').join('-')
+				};
+			}
+		},
+		getNextAlbum: state => albumId => {
+			let index = null;
+			let albumsArr = Object.keys(state.albums);
+			albumsArr.forEach((album, i) => {
+				let albumSlug = album.split('_').join('-');
+				if (albumSlug === albumId) {
+					index = i;
+				}
+			});
+			let nextAlbum = albumsArr[index + 1];
+			if (nextAlbum) {
+				return {
+					albumName: nextAlbum
+						.split('_')
+						.join(' ')
+						.capitalize(),
+					albumSlug: nextAlbum.split('_').join('-')
+				};
+			}
 		}
 	},
 	setters: {}
