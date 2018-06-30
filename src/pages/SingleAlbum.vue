@@ -1,7 +1,7 @@
 <template>
   <div v-if="album" id="single-album">
     <album-hero :title="albumName()" :desc="album.album_desc" />
-    <div class="album-images">
+    <div class="album-images" :class="{'has-many-images' : numOfImages > 5}">
       <image-preview v-for="image in album.images" :key="image.id" :image="image" />
     </div>
   </div>
@@ -18,6 +18,11 @@ export default {
   data(){
     return {
       album: null
+    }
+  },
+  computed: {
+    numOfImages(){
+      return this.album.images.length
     }
   },
   methods: {
@@ -54,4 +59,9 @@ export default {
   padding: 0 2em
   position: relative
   z-index: 50
+  &.has-many-images
+    flex-wrap: wrap
+    & > .image-preview
+      flex-basis: 20%
+      margin-bottom: 1em
 </style>

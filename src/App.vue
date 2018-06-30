@@ -1,11 +1,9 @@
 <template>
   <div id="app">
     <navbar />
-    <transition name="router-animation" enter-active-class="animated slideInLeft" leave-active-class="animated slideOutLeft">
-      <page-container>
-        <router-view></router-view>
-      </page-container>
-    </transition>
+    <page-container>
+      <router-view></router-view>
+    </page-container>
   </div>
 </template>
 
@@ -73,27 +71,5 @@ p
     flex-direction: column
     justify-content: center
     position: relative
-
-// .router-animation-enter-active
-//   animation: slideIn 1s
-//   opacity: 0
-
-// .router-animation-leave-active
-//   animation: slideOut 1s
-
-@keyframes slideIn
-  from
-    transform: translateX(-100%)
-  to
-    transform: translateX(0)
-    opacity: 0
-
-@keyframes slideOut
-  from
-    transform: translateX(-100%)
-    opacity: 0
-  to
-    transform: translateX(0)
-    opacity: 1
 
 </style>
