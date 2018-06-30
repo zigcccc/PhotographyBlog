@@ -1,9 +1,10 @@
 <template>
   <div v-if="album" id="single-album">
-    <album-hero :title="albumName()" :desc="album.album_desc" />
+    <album-hero :title="albumName" :desc="album.album_desc" />
     <div class="album-images" :class="{'has-many-images' : numOfImages > 5}">
       <image-preview v-for="image in album.images" :key="image.id" :image="image" />
     </div>
+    <album-navigation :prev="prevAlbum" :next="nextAlbum" />
   </div>
 </template>
 
@@ -11,10 +12,11 @@
 import router from '@/router'
 import AlbumHero from '@/components/AlbumHero'
 import ImagePreview from '@/components/ImagePreview'
+import AlbumNavigation from '@/components/AlbumNavigation'
 
 export default {
   name: 'SingleAlbum',
-  components: {AlbumHero, ImagePreview},
+  components: {AlbumHero, ImagePreview, AlbumNavigation},
   data(){
     return {
       album: null,
@@ -25,12 +27,12 @@ export default {
   computed: {
     numOfImages(){
       return this.album.images.length
+    },
+    albumName(){
+      return this.$route.params.albumId.split('-').join(' ').capitalize();
     }
   },
   methods: {
-    albumName(){
-      return this.$route.params.albumId.split('-').join(' ').capitalize();
-    },
     getAlbum(){
       this.album = this.$store.getters.getSpecificAlbum(this.$route.params.albumId);
       if (!this.album) {
@@ -38,7 +40,7 @@ export default {
       }
       this.prevAlbum = this.$store.getters.getPreviousAlbum(this.$route.params.albumId)
       this.nextAlbum = this.$store.getters.getNextAlbum(this.$route.params.albumId)
-      document.title = this.albumName() + ' - Fotografija :: Ziga Krasovec ✌️'
+      document.title = this.albumName + ' - Fotografija :: Ziga Krasovec ✌️'
       this.$store.dispatch('updateDescription', this.album.album_desc)
     }
   },

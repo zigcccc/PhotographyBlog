@@ -150,7 +150,7 @@ nav
   transform: translate3d(0,-250%,0) scale(4) rotate(90deg)
   opacity: 0
   visibility: hidden
-  +quickEaseTransition(500ms)
+  +quickEaseTransition(400ms)
   overflow-y: scroll
   &.menu-open
     transform: translate3d(0,0,0) scale(1) rotate(0)
