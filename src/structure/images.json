@@ -113,15 +113,6 @@
       },
       {
         "id": 12,
-        "image": "/images/figure/image_02.jpg",
-        "title": "Visoke petke",
-        "slug": "visoke-petke",
-        "description": "Prevladujoča vertikala na fotografiju pričara model izjemno visok, nadvladujoč in dominanten.",
-        "featured": false,
-        "tags": ["Človeška figura", "Studio"]
-      },
-      {
-        "id": 13,
         "image": "/images/figure/image_03.jpg",
         "title": "Resna scena",
         "slug": "resna-scena",
@@ -130,7 +121,7 @@
         "tags": ["Človeška figura", "Studio"]
       },
       {
-        "id": 14,
+        "id": 13,
         "image": "/images/figure/image_04.jpg",
         "title": "Malo, pa vseeno veliko",
         "slug": "malo-pa-vseeno-veliko",
@@ -139,11 +130,20 @@
         "tags": ["Človeška figura", "Studio"]
       },
       {
-        "id": 15,
+        "id": 14,
         "image": "/images/figure/image_05.jpg",
         "title": "Naravnost proti kameri",
         "slug": "naravnost-proti-kameri",
         "description": "Frontalno pozicioniran model, s pogledom direktno v objektiv kamere, vzpostavi močan stik z gledalcem.",
+        "featured": false,
+        "tags": ["Človeška figura", "Studio"]
+      },
+      {
+        "id": 15,
+        "image": "/images/figure/image_02.jpg",
+        "title": "Visoke petke",
+        "slug": "visoke-petke",
+        "description": "Prevladujoča vertikala na fotografiju pričara model izjemno visok, nadvladujoč in dominanten.",
         "featured": false,
         "tags": ["Človeška figura", "Studio"]
       }

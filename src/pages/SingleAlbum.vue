@@ -1,10 +1,12 @@
 <template>
   <div v-if="album" id="single-album">
     <album-hero :title="albumName" :desc="album.album_desc" />
-    <div class="album-images" :class="{'has-many-images' : numOfImages > 5}">
+    <div class="album-images" :class="[{'has-many-images' : numOfImages > 5}, {loading : isLoading}]">
       <image-preview v-for="image in album.images" :key="image.id" :image="image" />
     </div>
+    <hr>
     <album-navigation :prev="prevAlbum" :next="nextAlbum" />
+    <single-image />
   </div>
 </template>
 
@@ -13,6 +15,7 @@ import router from '@/router'
 import AlbumHero from '@/components/AlbumHero'
 import ImagePreview from '@/components/ImagePreview'
 import AlbumNavigation from '@/components/AlbumNavigation'
+import SingleImage from '@/components/SingleImage'
 
 export default {
   name: 'SingleAlbum',
@@ -20,8 +23,8 @@ export default {
   data(){
     return {
       album: null,
-      prevAlbum: null,
-      nextAlbum: null
+      albumId: null,
+      isLoading: true
     }
   },
   computed: {
@@ -30,22 +33,32 @@ export default {
     },
     albumName(){
       return this.$route.params.albumId.split('-').join(' ').capitalize();
+    },
+    prevAlbum(){
+      return this.$store.getters.getPreviousAlbum(this.albumId);
+    },
+    nextAlbum(){
+      return this.$store.getters.getNextAlbum(this.albumId);
     }
   },
   methods: {
     getAlbum(){
-      this.album = this.$store.getters.getSpecificAlbum(this.$route.params.albumId);
+      this.albumId = this.$route.params.albumId;
+      this.album = this.$store.getters.getSpecificAlbum(this.albumId);
       if (!this.album) {
         router.push({name: 'NotFound'})
       }
-      this.prevAlbum = this.$store.getters.getPreviousAlbum(this.$route.params.albumId)
-      this.nextAlbum = this.$store.getters.getNextAlbum(this.$route.params.albumId)
-      document.title = this.albumName + ' - Fotografija :: Ziga Krasovec ✌️'
-      this.$store.dispatch('updateDescription', this.album.album_desc)
+      document.title = this.albumName + ' - Fotografija :: Ziga Krasovec ✌️';
+      this.$store.dispatch('updateDescription', this.album.album_desc);
     }
   },
   created(){
     this.getAlbum();
+  },
+  mounted(){
+    this.$nextTick(() => {
+      this.isLoading = false
+    })
   },
   beforeUpdate(){
     this.getAlbum();
@@ -56,7 +69,13 @@ export default {
 <style lang="sass" scoped>
 #single-album
   padding: 0 2em
-  min-height: 2000px
+  //min-height: 2000px
+
+  hr
+    border: 1px solid $black
+    width: 100px
+    display: block
+    margin: 40px auto 0
 
 .album-images
   margin-top: 200px
@@ -65,6 +84,10 @@ export default {
   padding: 0 2em
   position: relative
   z-index: 50
+  +quickEaseTransition(600ms)
+  &.loading
+    opacity: 0
+    transform: translate3d(0, 50%, 0)
   &.has-many-images
     flex-wrap: wrap
     & > .image-preview

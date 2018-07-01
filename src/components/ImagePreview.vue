@@ -3,7 +3,7 @@
     <div class="image-container">
       <img :src="image.image" :alt="image.title" />
     </div>
-    <h3>{{ image.title }}</h3>
+    <h2>{{ image.title }}</h2>
   </div>
 </template>
 
@@ -30,10 +30,10 @@ export default {
   &:hover
     cursor: pointer
     flex-grow: 2
-    h3
+    h2
       transform: translate3d(0,0,0)
 
-  h3
+  h2
     position: absolute
     bottom: 0
     left: 0
@@ -42,7 +42,8 @@ export default {
     transform: translate3d(0,100%,0)
     display: block
     text-align: center
-    background: $white
+    background: $primary
+    color: $black
     text-transform: uppercase
     font-size: .75em
     font-weight: 900

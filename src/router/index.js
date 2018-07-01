@@ -2,7 +2,6 @@ import VueRouter from 'vue-router';
 
 import Home from '@/pages/Home';
 import SingleAlbum from '@/pages/SingleAlbum';
-import SinglePhoto from '@/pages/SinglePhoto';
 import NotFound from '@/pages/NotFound';
 
 const router = new VueRouter({
@@ -17,11 +16,6 @@ const router = new VueRouter({
 			path: '/:albumId',
 			name: 'SingleAlbum',
 			component: SingleAlbum
-		},
-		{
-			path: '/:albumId/:slug',
-			name: 'SinglePhoto',
-			component: SinglePhoto
 		},
 		{
 			path: '/page-not-found',
