@@ -1,5 +1,5 @@
 <template>
-  <div class="image-preview">
+  <div @click="expandImage(image, index)" class="image-preview">
     <div class="image-container">
       <img :src="image.image" :alt="image.title" />
     </div>
@@ -13,6 +13,14 @@ export default {
   props: {
     image: {
       type: Object,
+      required: true
+    },
+    expandImage: {
+      type: Function,
+      required: true
+    },
+    index: {
+      type: Number,
       required: true
     }
   }

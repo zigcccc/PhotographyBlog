@@ -105,7 +105,7 @@ export default {
 
 .album-description
   max-width: 75%
-  transform: translateY(125%)
+  transform: translateY(120px)
   line-height: 1.618
 
 

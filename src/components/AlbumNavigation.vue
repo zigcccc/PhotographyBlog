@@ -1,10 +1,10 @@
 <template>
   <div id="album-navigation">
-    <router-link id="prev-album" v-if="prev" :to="prev.albumSlug">
+    <router-link id="prev-album" v-if="prev !== undefined" :to="prev.albumSlug">
       <i class="fas fa-long-arrow-alt-left"></i><span>{{ prev.albumName }}</span>
     </router-link>
     <p>Navigacija po albumih</p>
-    <router-link id="next-album" v-if="next" :to="next.albumSlug">
+    <router-link id="next-album" v-if="next !== undefined" :to="next.albumSlug">
       <span>{{ next.albumName }}</span><i class="fas fa-long-arrow-alt-right"></i>
     </router-link>
   </div>
@@ -19,9 +19,17 @@ export default {
 
 <style lang="sass" scoped>
 #album-navigation
-  position: relative
-  width: 100%
-  padding: 2em 3em
+  position: fixed
+  bottom: 2em
+  left: 50%
+  transform: translateX(-50%)
+  width: 75%
+  max-width: 750px
+  padding: 1.5em 3em
+  background: lighten($white, 2%)
+  border-radius: 200px
+  box-shadow: $shadow-1
+  z-index: 1000
   p
     text-align: center
     font-size: .7em
@@ -33,7 +41,7 @@ export default {
   #next-album
     position: absolute
     top: 50%
-    font-size: 2em
+    font-size: 1.5em
     display: flex
     align-items: center
     color: $primary
@@ -47,7 +55,7 @@ export default {
       color: $black
       +bounceTransition(500ms)
   #next-album
-    right: 1.5em
+    right: 1em
     &:hover
       transform: translate3d(10%, -50%, 0)
       span
@@ -55,7 +63,7 @@ export default {
     span
       margin-right: 1em
   #prev-album
-    left: 1.5em
+    left: 1em
     &:hover
       transform: translate3d(-10%, -50%, 0)
       span

@@ -2,11 +2,18 @@
   <div v-if="album" id="single-album">
     <album-hero :title="albumName" :desc="album.album_desc" />
     <div class="album-images" :class="[{'has-many-images' : numOfImages > 5}, {loading : isLoading}]">
-      <image-preview v-for="image in album.images" :key="image.id" :image="image" />
+      <image-preview :expandImage="expandImage" v-for="(image, i) in album.images" :key="image.id" :image="image" :index="i + 1" />
     </div>
-    <hr>
     <album-navigation :prev="prevAlbum" :next="nextAlbum" />
-    <single-image />
+    <single-image 
+      :isExpanded="imageExpanded"
+      :closeImage="closeImage"
+      :image="singleImage"
+      :index="currentSingleImage"
+      :toNext="toNext"
+      :toPrev="toPrev"
+      :allImages="numOfImages"
+    />
   </div>
 </template>
 
@@ -19,12 +26,15 @@ import SingleImage from '@/components/SingleImage'
 
 export default {
   name: 'SingleAlbum',
-  components: {AlbumHero, ImagePreview, AlbumNavigation},
+  components: {AlbumHero, ImagePreview, AlbumNavigation, SingleImage},
   data(){
     return {
       album: null,
       albumId: null,
-      isLoading: true
+      isLoading: true,
+      imageExpanded: false,
+      singleImage: null,
+      currentSingleImage: null
     }
   },
   computed: {
@@ -50,6 +60,30 @@ export default {
       }
       document.title = this.albumName + ' - Fotografija :: Ziga Krasovec ✌️';
       this.$store.dispatch('updateDescription', this.album.album_desc);
+    },
+    expandImage(image, index){
+      this.imageExpanded = true
+      this.singleImage = image
+      this.currentSingleImage = index
+    },
+    closeImage(){
+      this.imageExpanded = false
+      this.currentSingleImage = null
+      //this.singleImage = null
+    },
+    toNext(){
+      if (this.currentSingleImage < this.numOfImages) {
+        let newImage = this.album.images[(this.currentSingleImage + 1) - 1];
+        this.singleImage = newImage;
+        this.currentSingleImage++;
+      }
+    },
+    toPrev(){
+      if (this.currentSingleImage > 1) {
+        let newImage = this.album.images[(this.currentSingleImage - 1) - 1];
+        this.singleImage = newImage;
+        this.currentSingleImage--
+      }
     }
   },
   created(){
@@ -68,14 +102,7 @@ export default {
 
 <style lang="sass" scoped>
 #single-album
-  padding: 0 2em
-  //min-height: 2000px
-
-  hr
-    border: 1px solid $black
-    width: 100px
-    display: block
-    margin: 40px auto 0
+  padding: 0 2em 120px
 
 .album-images
   margin-top: 200px
@@ -84,6 +111,7 @@ export default {
   padding: 0 2em
   position: relative
   z-index: 50
+  background: $white
   +quickEaseTransition(600ms)
   &.loading
     opacity: 0
