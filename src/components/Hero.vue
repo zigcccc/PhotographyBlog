@@ -17,15 +17,15 @@ import HeroAnimation from '@/components/HeroAnimation'
 export default {
   name: 'Hero',
   components: {HeroAnimation},
-  data(){
+  data() {
     return {
-      heroHeight: 0
+      heroHeight: 0,
     }
   },
   methods: {
     scrollPastHero(){
       window.scroll({
-        top: window.innerHeight - (this.heroHeight / 2),
+        top: this.heroScroll,
         left: 0,
         behavior: 'smooth'
       })
@@ -34,8 +34,21 @@ export default {
       return this.$el.clientHeight;
     }
   },
+  computed: {
+    heroScroll() {
+      let screenWidth = window.innerWidth;
+      if (screenWidth < 768) {
+        return this.heroHeight + 50;
+      } else {
+        return window.innerHeight - (this.heroHeight / 2)
+      }
+    }
+  },
   mounted(){
     this.heroHeight = this.getHeroHeight()
+    window.addEventListener('resize', () => {
+      this.heroHeight = this.getHeroHeight()
+    })
   }
 }
 </script>
@@ -43,7 +56,12 @@ export default {
 <style lang="sass" scoped>
   .columns
     padding: 1em
+    @media screen and (max-width: 768px)
+      padding: 0
+      margin-bottom: 0 !important
     .column
+      @media screen and (max-width: 768px)
+        padding: 20px
       &.is-vertical-aligned
         justify-content: center
         z-index: 1000
@@ -56,6 +74,8 @@ export default {
         margin-top: 150px
         @media screen and (max-width: 768px)
           font-size: 2em
+          margin-top: 0em
+          text-align: left
       h2
         font-family: $family-sans-serif
         font-weight: 300
@@ -66,5 +86,7 @@ export default {
       p
         margin-top: 30px
         max-width: 75%
+        @media screen and (max-width: 768px)
+          max-width: 100%
       
 </style>

@@ -113,6 +113,10 @@ export default {
   z-index: 50
   background: $white
   +quickEaseTransition(600ms)
+  @media screen and (max-width: 768px)
+    margin-top: 20px
+    flex-wrap: wrap
+    padding: 0
   &.loading
     opacity: 0
     transform: translate3d(0, 50%, 0)

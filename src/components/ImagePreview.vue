@@ -35,6 +35,10 @@ export default {
   overflow: hidden
   position: relative
   box-shadow: $shadow-2
+  @media screen and (max-width: 768px)
+    min-width: 43%
+    height: 150px
+    margin: .5em
   &:hover
     cursor: pointer
     flex-grow: 2

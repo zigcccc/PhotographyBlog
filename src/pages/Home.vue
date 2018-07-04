@@ -37,5 +37,7 @@ img
   height: auto
 #albums-container
   margin-top: 25vh
+  @media screen and (max-width: 768px)
+    margin-top: 0
 </style>
 

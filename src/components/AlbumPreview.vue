@@ -100,8 +100,16 @@ export default {
   position: relative
   z-index: 10
   padding-bottom: 20vh
+  @media screen and (max-width: 768px)
+    background: $white
+    padding-bottom: 5vh
+    padding-top: 5vh
   &.is-inverted
     color: $primary
+    @media screen and (max-width: 768px)
+      .columns
+        display: flex
+        flex-direction: column-reverse
     .image-container
       .image-border-offset
         left: 7.5%
@@ -120,6 +128,10 @@ export default {
     position: relative
     display: flex
     height: 450px
+    @media screen and (max-width: 768px)
+      height: 250px
+      width: 250px
+      margin: 0 auto
     .image-border-offset
       content: ''
       width: 100%
@@ -130,6 +142,8 @@ export default {
       top: -10%
       left: -7.5%
       border: 20px solid $black
+      @media screen and (max-width: 768px)
+        border: 15px solid $black
     & > a
       display: flex 
       & > img
@@ -151,6 +165,8 @@ export default {
     font-size: 2.5em
     margin-bottom: 20px
     text-shadow: 0 5px 10px transparentize($black, .75)
+    @media screen and (max-width: 768px)
+      text-align: center
     &::after
       content: ''
       height: 3px
@@ -158,6 +174,8 @@ export default {
       background: $primary
       display: block
       margin-top: 10px
+      @media screen and (max-width: 768px)
+        margin: 10px auto
 
   .album-preview-desc
     line-height: 1.618

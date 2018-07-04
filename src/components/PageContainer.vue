@@ -26,4 +26,6 @@ export default {
   height: 90vh
   top: calc(#{$navbar-height} + 1em)
   right: calc(1em + 22px)
+  @media screen and (max-width: 1120px)
+    display: none
 </style>

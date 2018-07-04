@@ -68,7 +68,7 @@ nav
   position: fixed
   top: 0
   left: 0
-  z-index: 10000
+  z-index: 100000
   //background: $white
 
 .logo-container
@@ -141,7 +141,7 @@ nav
   bottom: 0
   left: 0
   right: 0
-  z-index: 10000
+  z-index: 1000000
   background: transparentize($primary, 0)
   display: flex
   flex-direction: column
@@ -152,6 +152,8 @@ nav
   visibility: hidden
   +quickEaseTransition(400ms)
   overflow-y: scroll
+  @media screen and (max-width: 768px)
+    z-index: 1000000
   &.menu-open
     transform: translate3d(0,0,0) scale(1) rotate(0)
     opacity: 1

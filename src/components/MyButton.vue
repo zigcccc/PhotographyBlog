@@ -37,6 +37,8 @@ export default {
 .btn-container
   display: flex
   margin: 2em 0 1em
+  @media screen and (max-width: 768px)
+    justify-content: center
   &.center
     justify-content: center
   &.right

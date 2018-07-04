@@ -30,6 +30,8 @@ export default {
   border-radius: 200px
   box-shadow: $shadow-1
   z-index: 1000
+  @media screen and (max-width: 768px)
+    width: 90%
   p
     text-align: center
     font-size: .7em
@@ -37,6 +39,8 @@ export default {
     font-weight: 900
     font-family: $family-sans-serif
     color: $black
+    @media screen and (max-width: 768px)
+      display: none
   #prev-album,
   #next-album
     position: absolute

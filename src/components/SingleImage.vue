@@ -23,10 +23,11 @@
         </div>
         <div class="spacer"></div>
         <div id="image-navigation">
-          <a @click.prevent="toPrev">nazaj</a>
+          <a @click.prevent="toPrev" :class="{disabled : index === 1}"><i class="fas fa-chevron-left"></i></a>
           <span>{{ index }} / {{ allImages }}</span>
-          <a @click.prevent="toNext">naprej</a>
+          <a @click.prevent="toNext" :class="{disabled : index === allImages}"><i class="fas fa-chevron-right"></i></a>
         </div>
+        <small>Za navigacijo lahko uporabite tudi puščici ← → na tipkovnici.</small>
       </div>
     </div>
   </div>
@@ -40,6 +41,12 @@ export default {
     window.addEventListener('keydown', e => {
       if (e.keyCode === 27 && this.isExpanded) {
         this.closeImage()
+      }
+      if (e.keyCode === 37 && this.isExpanded) {
+        this.toPrev();
+      }
+      if (e.keyCode === 39 && this.isExpanded) {
+        this.toNext();
       }
     })
   },
@@ -73,10 +80,20 @@ export default {
         transform: translate3d(0, 0, 0)
         opacity: 1
 
+  small
+    font-size: .75em
+    text-align: center
+    padding-bottom: 1em
+    @media screen and (max-width: 768px)
+      display: none
+
 
 .columns
   height: 100vh
   margin: 0
+  @media screen and (max-width: 991px)
+    display: flex
+    flex-direction: column
 
 #image-column
   height: 100vh
@@ -84,6 +101,11 @@ export default {
   padding: 0
   overflow: hidden
   position: relative
+  @media screen and (max-width: 991px)
+    height: 50vh
+    width: 100vw
+  @media screen and (max-width: 768px)
+    min-height: 60vh
 .bg-image
   background-size: cover
   width: 100%
@@ -138,7 +160,15 @@ export default {
 
 #description-column
   padding: 0 2em
-  margin-top: 25%
+  margin-top: 25vh
+  @media screen and (max-width: 991px)
+    margin-top: 2em
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+  @media screen and (max-width: 768px)
+    margin-top: -1em
   h3
     font-size: 4.5em
     font-family: $family-serif
@@ -146,6 +176,11 @@ export default {
     font-weight: 900
     text-shadow: 0 5px 10px transparentize($black, .75)
     line-height: 1.1
+    @media screen and (max-width: 991px)
+      font-size: 3.5em
+    @media screen and (max-width: 768px)
+      font-size: 1.75em
+      text-align: center
     &::after
       content: ''
       width: 200px
@@ -156,27 +191,52 @@ export default {
       display: block
       margin: .5em 0
       transform: translate3d(-50%, 0, 0)
+      @media screen and (max-width: 991px)
+        transform: translate3d(0, 0, 0)
+        margin: .5em auto 0
 
   .image-description
     position: relative
     margin-top: 2em
+    @media screen and (max-width: 991px)
+      margin: 2em auto
+    @media screen and (max-width: 768px)
+      margin: 1em auto
     span
       font-size: 5em
       line-height: 1
       position: absolute
       opacity: .1
       top: -50%
+      @media screen and (max-width: 991px)
+        top: -50%
+        left: 25%
+      @media screen and (max-width: 768px)
+        left: -5%
+        font-size: 3em
 
-  p
-    max-width: 75%
-    display: block
-    margin-left: auto
-    margin-right: auto
-    text-align: left
+    p
+      max-width: 75%
+      display: block
+      margin-left: auto
+      margin-right: auto
+      text-align: left
+      margin-top: 20px
+      @media screen and (max-width: 991px)
+        margin-top: 0
+        width: 50%
+        max-width: unset
+        min-width: 300px
+        text-align: center
+      @media screen and (max-width: 768px)
+        width: 100%
+        font-size: 14px
 
   .tags-container
     display: flex
     margin-bottom: 1.5em
+    @media screen and (max-width: 768px)
+      justify-content: center
     .tag
       background: $primary
       padding: .75em 1em
@@ -191,5 +251,33 @@ export default {
 #image-navigation
   display: flex
   justify-content: space-between
-  padding: 2em
+  align-items: center
+  padding: 1em
+  @media screen and (max-width: 768px)
+    padding: 0
+    position: absolute
+    bottom: 0
+    width: calc(100% - 4em)
+  a
+    padding: 1em
+    color: $black
+    font-size: 1.5em
+    +bounceTransition
+    @media screen and (max-width: 768px)
+      font-size: 2em
+      padding: 0
+    &.disabled
+      opacity: .5
+      &:first-of-type,
+      &:last-of-type
+        &:hover
+          cursor: default
+          transform: translateX(0)
+    &:first-of-type
+      &:hover
+        transform: translateX(-5px)
+    &:last-of-type
+      &:hover
+        transform: translateX(5px)
+
 </style>

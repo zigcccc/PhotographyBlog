@@ -54,6 +54,9 @@ export default {
 <style lang="sass" scoped>
 #hero-animation
   min-height: 50vh
+  @media screen and (max-width: 768px)
+    min-height: unset
+    height: 33vh
 .background
   position: relative
   .background-smudge
@@ -89,7 +92,7 @@ export default {
     bottom: 0
     transform: translateX(-25%)
     @media screen and (max-width: 768px)
-      bottom: 5%
+      bottom: 35%
 
 @keyframes droneAnimation
   0%

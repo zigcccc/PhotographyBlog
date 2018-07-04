@@ -65,11 +65,15 @@ export default {
 <style lang="sass" scoped>
 .smudges-container
   position: relative
+  @media screen and (max-width: 768px)
+    display: none
   .background-smudge
     position: absolute
     top: 0
     left: 0
     opacity: 1
+    @media screen and (max-width: 768px)
+      opacity: .5
   #smudge1
     margin-top: -25%
     z-index: 2
@@ -80,8 +84,9 @@ export default {
   margin-top: 150px
   margin-right: 2em
   text-align: right
-  //overflow-x: hidden
   position: relative
+  @media screen and (max-width: 768px)
+    margin-top: 0px
   h1
     font-size: 3.5em
     font-weight: 900
@@ -90,6 +95,9 @@ export default {
     z-index: 10
     text-align: right
     text-shadow: 0 5px 10px rgba(0,0,0,.35)
+    @media screen and (max-width: 768px)
+      text-align: center
+      font-size: 2em
   .huge-title
     font-size: 150px
     position: absolute
@@ -102,11 +110,16 @@ export default {
     font-weight: 900
     margin-top: -65px
     white-space: nowrap
+    @media screen and (max-width: 768px)
+      display: none
 
 .album-description
   max-width: 75%
   transform: translateY(120px)
   line-height: 1.618
+  @media screen and (max-width: 768px)
+    transform: translateY(0)
+    max-width: 100%
 
 
 </style>

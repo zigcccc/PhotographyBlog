@@ -71,5 +71,7 @@ p
     flex-direction: column
     justify-content: center
     position: relative
+    @media screen and (max-width: 768px)
+      display: block !important
 
 </style>
