@@ -5,9 +5,9 @@
         <logo />
       </router-link>
       <div class="social-links">
-        <a href="https://www.facebook.com/zkrasovec" target="_blank" class="social-link"><i class="fab fa-facebook-f"></i></a>
-        <a href="https://www.instagram.com/ziga_krasovec/?hl=en" target="_blank" class="social-link"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.linkedin.com/in/zigakrasovec/" target="_blank" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+        <a @click="socialLinkClick('facebook')" href="https://www.facebook.com/zkrasovec" target="_blank" class="social-link"><i class="fab fa-facebook-f"></i></a>
+        <a @click="socialLinkClick('instagram')" href="https://www.instagram.com/ziga_krasovec/?hl=en" target="_blank" class="social-link"><i class="fab fa-instagram"></i></a>
+        <a @click="socialLinkClick('linkedin')" href="https://www.linkedin.com/in/zigakrasovec/" target="_blank" class="social-link"><i class="fab fa-linkedin-in"></i></a>
       </div>
       <div class="menu-btn" @click="toggleMenu">
         <span></span>
@@ -40,6 +40,15 @@ export default {
   methods: {
     toggleMenu(){
       this.menuOpen ? this.menuOpen = false : this.menuOpen = true
+    },
+    socialLinkClick(platform) {
+      this.$gtm.trackEvent({
+        event: 'SocialLinkClick',
+        category: 'Link Click',
+        action: 'click',
+        label: platform,
+        noninteraction: false
+      })
     }
   },
   created() {

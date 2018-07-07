@@ -23,6 +23,7 @@
     },
     created(){
       this.albums = this.$store.state.albums
+      document.title = 'Fotografija :: Ziga Krasovec ✌️';
       this.$store.dispatch('updateDescription', 'Predstavitev fotografskih del v okviru predmeta fotografija2 na Naravoslovno tehnični fakulteti v Ljubljani.')
     }
   }

@@ -20,7 +20,7 @@ Vue.use(VueAnalytics, {
 });
 Vue.use(VueGtm, {
 	enabled: true,
-	debug: false,
+	debug: true,
 	vueRouter: router
 });
 Vue.use(Meta);
