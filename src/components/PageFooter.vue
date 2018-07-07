@@ -34,6 +34,11 @@ export default {
     }
   },
   methods: {
+    removeCookiesOnScroll(scrollTop) {
+      if (scrollTop > 100) {
+        this.cookiesAccepted();
+      }
+    },
     cookiesAccepted() {
       this.cookieStyle.transform = 'translateY(100%)'
       this.cookieStyle.opacity = 0
@@ -46,6 +51,14 @@ export default {
         label: 'zkrasovec@gmail.com'
       })
     }
+  },
+  created() {
+    document.addEventListener('scroll', e => {
+      this.removeCookiesOnScroll(e.target.scrollingElement.scrollTop)
+    })
+  },
+  destroyed() {
+    document.removeEventListener('scroll', this.removeCookiesOnScroll)
   }
 }
 </script>

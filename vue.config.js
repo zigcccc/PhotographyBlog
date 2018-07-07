@@ -1,3 +1,4 @@
+const path = require('path');
 module.exports = {
 	configureWebpack: {
 		module: {
@@ -5,14 +6,14 @@ module.exports = {
 				{
 					test: /\.sass$/,
 					use: [
-						'vue-style-loader',
-						'css-loader',
+						//'vue-style-loader',
+						//'css-loader',
 						{
 							loader: 'sass-resources-loader',
 							options: {
 								resources: [
-									'./src/sass/_variables.sass',
-									'./src/sass/_mixins.sass'
+									path.resolve(__dirname, './src/sass/_variables.sass'),
+									path.resolve(__dirname, './src/sass/_mixins.sass')
 								]
 							}
 						}
