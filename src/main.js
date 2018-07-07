@@ -1,5 +1,7 @@
 import Vue from 'vue/dist/vue';
 import VueRouter from 'vue-router';
+import firebase from 'firebase';
+import firebaseConf from '@/firebase/firebase.config';
 import VueAnalytics from 'vue-analytics';
 import VueGtm from 'vue-gtm';
 import Meta from 'vue-meta';
@@ -9,6 +11,8 @@ import store from '@/store';
 
 import PageContainer from '@/components/PageContainer';
 import MyButton from '@/components/MyButton';
+
+firebase.initializeApp(firebaseConf);
 
 Vue.config.productionTip = false;
 
@@ -20,7 +24,7 @@ Vue.use(VueAnalytics, {
 });
 Vue.use(VueGtm, {
 	enabled: true,
-	debug: true,
+	debug: false,
 	vueRouter: router
 });
 Vue.use(Meta);
