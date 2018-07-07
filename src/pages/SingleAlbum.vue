@@ -5,7 +5,7 @@
       <image-preview :expandImage="expandImage" v-for="(image, i) in album.images" :key="image.id" :image="image" :index="i + 1" />
     </div>
     <album-navigation :prev="prevAlbum" :next="nextAlbum" />
-    <single-image 
+    <single-image
       :isExpanded="imageExpanded"
       :closeImage="closeImage"
       :image="singleImage"
@@ -65,6 +65,13 @@ export default {
       this.imageExpanded = true
       this.singleImage = image
       this.currentSingleImage = index
+      this.$gtm.trackEvent({
+        event: 'SingleImageView',
+        category: this.albumName,
+        action: 'click',
+        label: `${image.title} - ${this.albumName}`,
+        noninteraction: false
+      })
     },
     closeImage(){
       this.imageExpanded = false
@@ -76,13 +83,27 @@ export default {
         let newImage = this.album.images[(this.currentSingleImage + 1) - 1];
         this.singleImage = newImage;
         this.currentSingleImage++;
+        this.$gtm.trackEvent({
+          event: 'SingleImageView',
+          category: this.albumName,
+          action: 'click',
+          label: newImage.title,
+          noninteraction: false
+        })
       }
     },
     toPrev(){
       if (this.currentSingleImage > 1) {
         let newImage = this.album.images[(this.currentSingleImage - 1) - 1];
         this.singleImage = newImage;
-        this.currentSingleImage--
+        this.currentSingleImage--;
+        this.$gtm.trackEvent({
+          event: 'SingleImageView',
+          category: this.albumName,
+          action: 'click',
+          label: newImage.title,
+          noninteraction: false
+        })
       }
     }
   },

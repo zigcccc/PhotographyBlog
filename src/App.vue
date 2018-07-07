@@ -4,14 +4,16 @@
     <page-container>
       <router-view></router-view>
     </page-container>
+    <page-footer />
   </div>
 </template>
 
 <script>
 import Navbar from '@/components/Navbar'
+import PageFooter from '@/components/PageFooter'
 export default {
   name: 'app',
-  components: {Navbar},
+  components: {Navbar, PageFooter},
   metaInfo: {
     title: 'Fotografija',
     titleTemplate: '%s :: Ziga Krasovec ✌️',
@@ -74,4 +76,27 @@ p
     @media screen and (max-width: 768px)
       display: block !important
 
+.Cookie--mytheme
+  background: $black
+  color: $white
+  padding: 1em
+  font-size: 12px
+  box-shadow: 0 -5px 10px rgba(0,0,0,.2)
+
+  .Cookie__content
+    a
+      color: $primary
+
+  .Cookie__button
+    background: $primary
+    padding: .75em 1em
+    border-radius: 200px
+    color: $black
+    font-weight: 900
+    font-family: $family-sans-serif
+    box-shadow: $shadow-3
+    +bounceTransition
+    &:hover
+      transform: translateY(-3px)
+      box-shadow: $shadow-5
 </style>
