@@ -7,8 +7,8 @@
         </div>
       </div>
       <h2>Login to the admin panel</h2>
-      <input type="email" v-model="email" placeholder="email">
-      <input type="password" v-model="password" placeholder="password">
+      <input id="email" required type="email" v-model="email" placeholder="email">
+      <input id="password" required type="password" v-model="password" placeholder="password">
       <div class="submit-container">
         <input type="submit" value="login" @click="login">
       </div>
@@ -48,12 +48,26 @@ export default {
         password: this.password
       }
       this.$store.dispatch('signUserIn', auth)
+    },
+    focusOnEmail() {
+      document.getElementById('email').focus();
+    },
+    focusOnPassword() {
+      document.getElementById('password').focus();
     }
   },
   watch: {
-    user (value) {
+    user(value) {
       if (value !== null && value !== undefined) {
         this.$router.push({name: 'Admin'})
+      }
+    },
+    errors(value) {
+      if (value !== null && value.code === 'auth/invalid-email') {
+        this.focusOnEmail();
+      }
+      if (value !== null && value.code === 'auth/wrong-password') {
+        this.focusOnPassword();
       }
     }
   },
@@ -66,6 +80,9 @@ export default {
         this.login()
       }
     })
+  },
+  mounted() {
+    this.focusOnEmail();
   },
   destroyed() {
     document.removeEventListener('keydown', this.login)
