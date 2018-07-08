@@ -1,7 +1,9 @@
 import Vue from 'vue/dist/vue';
 import VueRouter from 'vue-router';
-import firebase from 'firebase';
-import firebaseConf from '@/firebase/firebase.config';
+import firebase from 'firebase/app';
+import 'firebase/firestore';
+import 'firebase/auth';
+import VueFire from 'vuefire';
 import VueAnalytics from 'vue-analytics';
 import VueGtm from 'vue-gtm';
 import Meta from 'vue-meta';
@@ -12,7 +14,17 @@ import store from '@/store';
 import PageContainer from '@/components/PageContainer';
 import MyButton from '@/components/MyButton';
 
-firebase.initializeApp(firebaseConf);
+firebase.initializeApp({
+	apiKey: 'AIzaSyAZgrH7-W4CQ9l5ZaL8WhTJSwFv9LA-5Gg',
+	authDomain: 'photography-blog-da38d.firebaseapp.com',
+	databaseURL: 'https://photography-blog-da38d.firebaseio.com',
+	projectId: 'photography-blog-da38d',
+	storageBucket: 'photography-blog-da38d.appspot.com',
+	messagingSenderId: '104541265507'
+});
+export const db = firebase.firestore();
+export const firebaseApp = firebase;
+Vue.use(VueFire);
 
 Vue.config.productionTip = false;
 

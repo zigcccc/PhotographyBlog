@@ -4,15 +4,20 @@
       <router-link to="/" class="logo-container">
         <logo />
       </router-link>
-      <div class="social-links">
+      <div v-if="!isAdminArea" class="social-links">
         <a @click="socialLinkClick('facebook')" href="https://www.facebook.com/zkrasovec" target="_blank" class="social-link"><i class="fab fa-facebook-f"></i></a>
         <a @click="socialLinkClick('instagram')" href="https://www.instagram.com/ziga_krasovec/?hl=en" target="_blank" class="social-link"><i class="fab fa-instagram"></i></a>
         <a @click="socialLinkClick('linkedin')" href="https://www.linkedin.com/in/zigakrasovec/" target="_blank" class="social-link"><i class="fab fa-linkedin-in"></i></a>
       </div>
-      <div class="menu-btn" @click="toggleMenu">
-        <span></span>
-        <span></span>
-        <span></span>
+      <div class="right-side">
+        <div class="admin-area" v-if="isAuth">
+          <router-link to="admin">Hello, {{ userDisplayName }}</router-link>
+        </div>
+        <div class="menu-btn" @click="toggleMenu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
       </div>
     </nav>
     <div id="main-menu" :class="['menu-container', {'menu-open' : menuOpen}]">
@@ -27,6 +32,7 @@
 </template>
 
 <script>
+import { firebaseApp } from '@/main'
 import Logo from '@/components/Logo'
 export default {
   name: 'Navbar',
@@ -35,6 +41,21 @@ export default {
     return {
       menuOpen: false,
       albums: []
+    }
+  },
+  computed: {
+    isAuth() {
+      return firebaseApp.auth().currentUser !== null
+    },
+    isAdminArea() {
+      return this.$route.name === 'Admin'
+    },
+    userDisplayName() {
+      if (firebaseApp.auth().currentUser.displayName !== null) {
+        return firebaseApp.auth().currentUser.displayName;
+      } else {
+        return firebaseApp.auth().currentUser.email.split('@')[0];
+      }
     }
   },
   methods: {
@@ -108,8 +129,13 @@ nav
       background: $primary
       color: $black
 
+.right-side
+  display: flex
+  align-items: center
+
 .menu-btn
   +getSquare(50px)
+  margin-left: 1em
   background: $primary
   border-radius: 50%
   box-shadow: $shadow-3

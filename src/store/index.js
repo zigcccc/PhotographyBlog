@@ -16,6 +16,8 @@ Vue.use(Vuex);
 
 const store = new Vuex.Store({
 	state: {
+		user: null,
+		loginError: null,
 		albums: {
 			predmeti,
 			portreti_studio,
@@ -32,11 +34,17 @@ const store = new Vuex.Store({
 	actions: {
 		updateDescription({ commit }, payload) {
 			commit('updateDescription', payload);
+		},
+		setUser({ commit }, payload) {
+			commit('setUser', payload);
 		}
 	},
 	mutations: {
 		updateDescription(state, desc) {
 			state.siteDescription = desc;
+		},
+		setUser(state, user) {
+			state.user = user;
 		}
 	},
 	getters: {
