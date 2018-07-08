@@ -28,7 +28,12 @@ export default {
       if (this.email.length > 0 && this.password.length > 0) {
         firebaseApp.auth().signInWithEmailAndPassword(this.email, this.password).then(
           user => {
-            this.$store.dispatch('setUser', user);
+            let userData = {
+              email: user.user.email,
+              token: user.user.refreshToken,
+              displayName: user.user.displayName
+            }
+            this.$store.dispatch('setUser', userData)
             this.$router.push({name: 'Admin'})
           },
           error => {

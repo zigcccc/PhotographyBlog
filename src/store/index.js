@@ -37,14 +37,24 @@ const store = new Vuex.Store({
 		},
 		setUser({ commit }, payload) {
 			commit('setUser', payload);
+		},
+		removeUser({ commit }) {
+			commit('removeUser');
 		}
 	},
 	mutations: {
 		updateDescription(state, desc) {
 			state.siteDescription = desc;
 		},
-		setUser(state, user) {
-			state.user = user;
+		setUser(state, { email, token, displayName }) {
+			state.user = {
+				email,
+				token,
+				displayName
+			};
+		},
+		removeUser(state) {
+			state.user = null;
 		}
 	},
 	getters: {

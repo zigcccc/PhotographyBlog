@@ -45,16 +45,16 @@ export default {
   },
   computed: {
     isAuth() {
-      return firebaseApp.auth().currentUser !== null
+      return this.$store.state.user !== null;
     },
     isAdminArea() {
       return this.$route.name === 'Admin'
     },
     userDisplayName() {
-      if (firebaseApp.auth().currentUser.displayName !== null) {
-        return firebaseApp.auth().currentUser.displayName;
+      if (this.$store.state.user.displayName !== null) {
+        return this.$store.state.user.displayName;
       } else {
-        return firebaseApp.auth().currentUser.email.split('@')[0];
+        return this.$store.state.user.email.split('@')[0];
       }
     }
   },
@@ -132,6 +132,15 @@ nav
 .right-side
   display: flex
   align-items: center
+
+.admin-area
+  & > a
+    color: $black
+    font-size: 14px
+    +quickEaseTransition
+    &:hover
+      color: darken($black, 5%)
+      text-shadow: 0 5px 10px rgba(0,0,0,.2)
 
 .menu-btn
   +getSquare(50px)
