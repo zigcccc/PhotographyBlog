@@ -8,22 +8,28 @@
 </template>
 
 <script>
-import { firebaseApp } from '@/main'
 import AdminMenu from '@/components/AdminMenu'
 export default {
   name: 'Admin',
   components: {AdminMenu},
+  computed: {
+    user() {
+      return this.$store.getters.user;
+    }
+  },
   methods: {
     logout() {
-      firebaseApp.auth()
-        .signOut()
-        .then(() => {
-          this.$store.dispatch('removeUser');
-          this.$router.replace({name: 'Login'})
-        })
+      this.$store.dispatch('signUserOut')
     },
     toAdminHome() {
       this.$router.push({name: 'Admin'})
+    }
+  },
+  watch: {
+    user (value) {
+      if (value === null || value === undefined) {
+        this.$router.push({name: 'Login'})
+      }
     }
   }
 }

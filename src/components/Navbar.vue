@@ -10,7 +10,7 @@
         <a @click="socialLinkClick('linkedin')" href="https://www.linkedin.com/in/zigakrasovec/" target="_blank" class="social-link"><i class="fab fa-linkedin-in"></i></a>
       </div>
       <div class="right-side">
-        <div class="admin-area" v-if="isAuth">
+        <div class="admin-area" v-if="userIsAuth">
           <router-link to="admin">Hello, {{ userDisplayName }}</router-link>
         </div>
         <div class="menu-btn" @click="toggleMenu">
@@ -26,13 +26,15 @@
         <span></span>
         <span></span>
       </div>
+      <div class="admin-btn">
+        <router-link @click.native="toggleMenu" :to="{name: 'Admin'}"><span><i class="fas fa-user"></i></span></router-link>
+      </div>
       <router-link @click.native="toggleMenu" v-for="album in albums" :key="album.slug" :to="album.slug">{{ album.name }}</router-link>
     </div>
   </div>
 </template>
 
 <script>
-import { firebaseApp } from '@/main'
 import Logo from '@/components/Logo'
 export default {
   name: 'Navbar',
@@ -44,18 +46,17 @@ export default {
     }
   },
   computed: {
-    isAuth() {
-      return this.$store.state.user !== null;
+    user() {
+      return this.$store.getters.user;
+    },
+    userIsAuth() {
+      return this.$store.getters.user !== null && this.$store.getters.user !== undefined;
     },
     isAdminArea() {
       return this.$route.name === 'Admin'
     },
     userDisplayName() {
-      if (this.$store.state.user.displayName !== null) {
-        return this.$store.state.user.displayName;
-      } else {
-        return this.$store.state.user.email.split('@')[0];
-      }
+      return this.user.email.split('@')[0];
     }
   },
   methods: {
@@ -202,9 +203,33 @@ nav
     transform: translate3d(0,0,0) scale(1) rotate(0)
     opacity: 1
     visibility: visible
+    .admin-btn
+      opacity: 1
+      visibility: visible
     .menu-btn
       opacity: 1
       visibility: visible
+  .admin-btn
+    +getSquare(50px)
+    background: $black
+    position: fixed
+    top: 1.25em
+    left: 1em
+    color: $white
+    display: flex
+    justify-content: center
+    align-items: center
+    border-radius: 200px
+    box-shadow: $shadow-3
+    opacity: 0
+    visibility: hidden
+    +bounceTransition(400ms)
+    &:hover
+      box-shadow: $shadow-4
+      transform: translateY(-3px)
+    & > a
+      color: $white
+      padding: 1em
   .menu-btn
     opacity: 0
     visibility: hidden

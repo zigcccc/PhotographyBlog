@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import { firebaseApp } from '@/main'
+import * as firebase from 'firebase';
 export default {
   name: 'Login',
   data() {
@@ -23,29 +23,31 @@ export default {
       errorMsg: ''
     }
   },
+  computed: {
+    user() {
+      return this.$store.getters.user;
+    }
+  },
   methods: {
     login() {
       if (this.email.length > 0 && this.password.length > 0) {
-        firebaseApp.auth().signInWithEmailAndPassword(this.email, this.password).then(
-          user => {
-            let userData = {
-              email: user.user.email,
-              token: user.user.refreshToken,
-              displayName: user.user.displayName
-            }
-            this.$store.dispatch('setUser', userData)
-            this.$router.push({name: 'Admin'})
-          },
-          error => {
-            this.error = true
-            this.errorMsg = error.message
-          }
-        )
+        let auth = {
+          email: this.email,
+          password: this.password
+        }
+        this.$store.dispatch('signUserIn', auth)
+      }
+    }
+  },
+  watch: {
+    user (value) {
+      if (value !== null && value !== undefined) {
+        this.$router.push({name: 'Admin'})
       }
     }
   },
   created() {
-    if (firebaseApp.auth().currentUser !== null) {
+    if (firebase.auth().currentUser !== null) {
       this.$router.push({name: 'Admin'})
     }
     document.addEventListener('keydown', e => {
@@ -103,10 +105,12 @@ input
     &:hover
       cursor: pointer
       transform: translateY(-3px)
+      box-shadow: $shadow-4
 
 .submit-container
   display: flex
   justify-content: center
+  margin-top: 1.5em
 
 @keyframes error
   0%

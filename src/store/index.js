@@ -1,5 +1,6 @@
 import Vue from 'vue/dist/vue';
 import Vuex from 'vuex';
+import * as firebase from 'firebase';
 
 import {
 	akti,
@@ -35,23 +36,38 @@ const store = new Vuex.Store({
 		updateDescription({ commit }, payload) {
 			commit('updateDescription', payload);
 		},
-		setUser({ commit }, payload) {
-			commit('setUser', payload);
+		signUserOut({ commit }) {
+			firebase
+				.auth()
+				.signOut()
+				.then(() => {
+					commit('removeUser');
+				});
 		},
-		removeUser({ commit }) {
-			commit('removeUser');
+		signUserIn({ commit }, payload) {
+			firebase
+				.auth()
+				.signInWithEmailAndPassword(payload.email, payload.password)
+				.then(user => {
+					const newUser = {
+						id: user.user.uid,
+						email: user.user.email
+					};
+					commit('setUser', newUser);
+				})
+				.catch(err => {
+					if (err.code === 'auth/wrong-password') {
+						return;
+					}
+				});
 		}
 	},
 	mutations: {
 		updateDescription(state, desc) {
 			state.siteDescription = desc;
 		},
-		setUser(state, { email, token, displayName }) {
-			state.user = {
-				email,
-				token,
-				displayName
-			};
+		setUser(state, payload) {
+			state.user = payload;
 		},
 		removeUser(state) {
 			state.user = null;
@@ -120,6 +136,9 @@ const store = new Vuex.Store({
 					albumSlug: nextAlbum.split('_').join('-')
 				};
 			}
+		},
+		user: state => {
+			return state.user;
 		}
 	},
 	setters: {}

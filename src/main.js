@@ -1,10 +1,7 @@
 import Vue from 'vue/dist/vue';
 import VueRouter from 'vue-router';
-import firebase from 'firebase/app';
-import 'firebase/firestore';
-import 'firebase/auth';
+import * as firebase from 'firebase';
 import { config } from '@/firebase/firebase.config';
-import VueFire from 'vuefire';
 import VueAnalytics from 'vue-analytics';
 import VueGtm from 'vue-gtm';
 import Meta from 'vue-meta';
@@ -15,10 +12,9 @@ import store from '@/store';
 import PageContainer from '@/components/PageContainer';
 import MyButton from '@/components/MyButton';
 
-firebase.initializeApp(config);
-export const db = firebase.firestore();
-export const firebaseApp = firebase;
-Vue.use(VueFire);
+// export const firebase = Firebase.initializeApp(config);
+// export const db = firebase.firestore();
+//window.firebase = firebase;
 
 Vue.config.productionTip = false;
 
@@ -26,7 +22,8 @@ Vue.use(VueRouter);
 Vue.use(VueAnalytics, {
 	id: 'UA-109301417-2',
 	checkDuplicatedScript: true,
-	router
+	router,
+	ignoreRoutes: ['Admin', 'Login']
 });
 Vue.use(VueGtm, {
 	enabled: true,
@@ -43,5 +40,8 @@ new Vue({
 	router,
 	store,
 	template: '<App/>',
-	components: { App }
+	components: { App },
+	created() {
+		firebase.initializeApp(config);
+	}
 });

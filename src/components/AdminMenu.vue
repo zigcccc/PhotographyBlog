@@ -10,6 +10,10 @@
           <router-link :to="`admin/${album.slug}`">{{ album.name }}</router-link>
         </div>
       </div>
+      <hr>
+      <router-link to="admin/users">Users</router-link>
+      <hr>
+      <router-link to="admin/settings">Settings</router-link>
     </div>
     <div class="admin-menu-footer">
       <hr>
