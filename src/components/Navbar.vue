@@ -53,7 +53,7 @@ export default {
       return this.$store.getters.user !== null && this.$store.getters.user !== undefined;
     },
     isAdminArea() {
-      return this.$route.name === 'Admin'
+      return this.$route.meta.requiresAuth === true
     },
     userDisplayName() {
       return this.user.email.split('@')[0];

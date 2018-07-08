@@ -20,6 +20,7 @@ const store = new Vuex.Store({
 		user: null,
 		loginError: null,
 		loading: false,
+		albumUpdateSuccess: false,
 		albums: {
 			predmeti,
 			portreti_studio,
@@ -152,6 +153,9 @@ const store = new Vuex.Store({
 				};
 			}
 		},
+		capitalize: () => str => {
+			return str.capitalize();
+		},
 		user: state => {
 			return state.user;
 		},
@@ -160,6 +164,9 @@ const store = new Vuex.Store({
 		},
 		loginError: state => {
 			return state.loginError;
+		},
+		albumUpdateSuccess: state => {
+			return state.albumUpdateSuccess;
 		}
 	},
 	setters: {}

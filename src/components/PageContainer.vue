@@ -1,13 +1,18 @@
 <template>
   <div id="page-container">
     <slot></slot>
-    <div id="vertical-line"></div>
+    <div v-if="!isAuth" id="vertical-line"></div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'PageContainer'
+  name: 'PageContainer',
+  computed: {
+    isAuth() {
+      return this.$route.meta.requiresAuth
+    }
+  }
 }
 </script>
 

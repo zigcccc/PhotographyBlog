@@ -1,6 +1,8 @@
 import Vue from 'vue/dist/vue';
 import VueRouter from 'vue-router';
 import * as firebase from 'firebase';
+import * as admin from 'firebase-admin';
+import * as serviceAccount from '@/firebase/firebase-adminsdk.json';
 import { config } from '@/firebase/firebase.config';
 import VueAnalytics from 'vue-analytics';
 import VueGtm from 'vue-gtm';
@@ -11,6 +13,7 @@ import store from '@/store';
 
 import PageContainer from '@/components/PageContainer';
 import MyButton from '@/components/MyButton';
+import ToggleButton from 'vue-js-toggle-button';
 
 Vue.config.productionTip = false;
 
@@ -30,6 +33,7 @@ Vue.use(Meta);
 
 Vue.component('PageContainer', PageContainer);
 Vue.component('MyButton', MyButton);
+Vue.use(ToggleButton);
 
 new Vue({
 	el: '#app',
@@ -39,5 +43,9 @@ new Vue({
 	components: { App },
 	created() {
 		firebase.initializeApp(config);
+		admin.initializeApp({
+			credential: admin.credential.cert(serviceAccount.default),
+			databaseURL: 'https://photography-blog-da38d.firebaseio.com'
+		});
 	}
 });

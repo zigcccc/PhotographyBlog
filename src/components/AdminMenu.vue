@@ -1,24 +1,24 @@
 <template>
-  <aside id="admin-menu">
+  <aside id="admin-menu" :style="menuStyle">
     <div class="admin-menu-header">
       <h3 @click="toAdminHome">admin</h3>
       <hr>
     </div>
     <div class="admin-menu-content">
       <div class="add-album-cta-container">
-        <router-link to="admin/add-album">
+        <router-link :to="{name: 'AdminAddAlbum'}">
           <span><i class="fas fa-plus"></i></span> Album
         </router-link>
       </div>
       <div class="albums">
         <div class="album" v-for="album in albumsNames" :key="album.slug">
-          <router-link :to="`admin/album/${album.slug}`">{{ album.name }}</router-link>
+          <router-link :to="{name: 'AdminSingleAlbum', params: {albumId: album.slug}}">{{ album.name }}</router-link>
         </div>
       </div>
       <hr>
-      <router-link to="admin/users"><span><i class="fas fa-users"></i></span>Users</router-link>
+      <router-link :to="{name: 'AdminUsers'}"><span><i class="fas fa-users"></i></span>Users</router-link>
       <hr>
-      <router-link to="admin/settings"><span><i class="fas fa-sliders-h"></i></span>Settings</router-link>
+      <router-link :to="{name: 'AdminSettings'}"><span><i class="fas fa-sliders-h"></i></span>Settings</router-link>
     </div>
     <div class="admin-menu-footer">
       <hr>
@@ -33,6 +33,13 @@
 export default {
   name: 'AdminMenu',
   props: ['logout', 'toAdminHome'],
+  data() {
+    return {
+      menuStyle: {
+        transform: 'translate3d(0, 0, 0)'
+      }
+    }
+  },
   computed: {
     albumsNames() {
       return this.$store.getters.albumsNameAndSlug;
@@ -40,6 +47,20 @@ export default {
     albums() {
       return this.$store.state.albums
     }
+  },
+  methods: {
+    keepInView(scroll) {
+      let sanitizeScroll = Math.floor(scroll);
+      this.menuStyle.transform = `translate3d(0,${sanitizeScroll}px,0)`
+    }
+  },
+  created() {
+    document.addEventListener('scroll', e => {
+      this.keepInView(e.target.scrollingElement.scrollTop)
+    })
+  },
+  destroyed() {
+    document.removeEventListener('scroll', this.keepInView)
   }
 }
 </script>
@@ -49,11 +70,14 @@ export default {
   background: white
   border-radius: 5px
   box-shadow: $shadow-1
-  min-height: calc(100vh - #{$navbar-height + 35})
+  height: calc(100vh - #{$navbar-height + 35})
   padding: 1em
   display: flex
   flex-direction: column
   justify-content: space-between
+  overflow-y: scroll
+  position: sticky
+  top: calc(#{$navbar-height} + 1em)
 
   .admin-menu-header
     h3
@@ -121,20 +145,29 @@ export default {
         font-size: 14px
         position: relative
         transform: translateX(45px)
-        &:hover
+        a.router-link-exact-active
+          opacity: 1
           &::before
             transform: translateY(-50%) translateX(-45px)
-        &::before
-          content: ''
-          width: 30px
-          height: 2px
-          background: $black
-          display: block
-          position: absolute
-          top: 50%
-          left: 0
-          transform: translateY(-50%) translateX(-55px)
-          +quickEaseTransition(500ms)
+        &:hover
+          a
+            opacity: 1
+            &::before
+              transform: translateY(-50%) translateX(-45px)
+        a
+          opacity: .75
+          +quickEaseTransition
+          &::before
+            content: ''
+            width: 30px
+            height: 2px
+            background: $black
+            display: block
+            position: absolute
+            top: 50%
+            left: 0
+            transform: translateY(-50%) translateX(-55px)
+            +quickEaseTransition(500ms)
 
 
   .admin-menu-footer

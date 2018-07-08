@@ -2,6 +2,7 @@
 node_modules
 /dist
 /src/firebase/firebase.config.js
+/src/firebase/firebase-adminsdk.json
 
 # local env files
 .env.local

@@ -5,6 +5,10 @@ import Home from '@/pages/Home';
 import Login from '@/pages/Login';
 import Admin from '@/pages/Admin';
 import SingleAlbum from '@/pages/SingleAlbum';
+import AdminSingleAlbum from '@/pages/AdminSingleAlbum';
+import AdminUsers from '@/pages/AdminUsers';
+import AdminSettings from '@/pages/AdminSettings';
+import AdminAddAlbum from '@/pages/AdminAddAlbum';
 import NotFound from '@/pages/NotFound';
 
 const router = new VueRouter({
@@ -24,10 +28,45 @@ const router = new VueRouter({
 			path: '/admin',
 			name: 'Admin',
 			component: Admin,
+			children: [
+				{
+					path: 'users',
+					name: 'AdminUsers',
+					component: AdminUsers,
+					meta: {
+						requiresAuth: true
+					}
+				},
+				{
+					path: 'settings',
+					name: 'AdminSettings',
+					component: AdminSettings,
+					meta: {
+						requiresAuth: true
+					}
+				},
+				{
+					path: 'album/add-album',
+					name: 'AdminAddAlbum',
+					component: AdminAddAlbum,
+					meta: {
+						requiresAuth: true
+					}
+				},
+				{
+					path: 'album/:albumId',
+					name: 'AdminSingleAlbum',
+					component: AdminSingleAlbum,
+					meta: {
+						requiresAuth: true
+					}
+				}
+			],
 			meta: {
 				requiresAuth: true
 			}
 		},
+
 		{
 			path: '/:albumId',
 			name: 'SingleAlbum',

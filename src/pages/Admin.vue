@@ -2,7 +2,9 @@
   <div id="admin">
     <div class="admin-container">
       <admin-menu :logout="logout" :toAdminHome="toAdminHome" />
-      <main>kjk</main>
+      <main>
+        <router-view></router-view>
+      </main>
     </div>
   </div>
 </template>
