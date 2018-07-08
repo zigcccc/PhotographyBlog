@@ -12,10 +12,6 @@ import store from '@/store';
 import PageContainer from '@/components/PageContainer';
 import MyButton from '@/components/MyButton';
 
-// export const firebase = Firebase.initializeApp(config);
-// export const db = firebase.firestore();
-//window.firebase = firebase;
-
 Vue.config.productionTip = false;
 
 Vue.use(VueRouter);

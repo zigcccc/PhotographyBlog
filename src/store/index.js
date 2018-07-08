@@ -19,6 +19,7 @@ const store = new Vuex.Store({
 	state: {
 		user: null,
 		loginError: null,
+		loading: false,
 		albums: {
 			predmeti,
 			portreti_studio,
@@ -45,10 +46,13 @@ const store = new Vuex.Store({
 				});
 		},
 		signUserIn({ commit }, payload) {
+			commit('setLoading', true);
+			commit('clearError');
 			firebase
 				.auth()
 				.signInWithEmailAndPassword(payload.email, payload.password)
 				.then(user => {
+					commit('setLoading', false);
 					const newUser = {
 						id: user.user.uid,
 						email: user.user.email
@@ -56,6 +60,8 @@ const store = new Vuex.Store({
 					commit('setUser', newUser);
 				})
 				.catch(err => {
+					commit('setLoading', false);
+					commit('setLoginError', err);
 					if (err.code === 'auth/wrong-password') {
 						return;
 					}
@@ -71,6 +77,15 @@ const store = new Vuex.Store({
 		},
 		removeUser(state) {
 			state.user = null;
+		},
+		setLoading(state, payload) {
+			state.loading = payload;
+		},
+		setLoginError(state, payload) {
+			state.loginError = payload;
+		},
+		clearError(state) {
+			state.loginError = null;
 		}
 	},
 	getters: {
@@ -139,6 +154,12 @@ const store = new Vuex.Store({
 		},
 		user: state => {
 			return state.user;
+		},
+		isLoading: state => {
+			return state.loading;
+		},
+		loginError: state => {
+			return state.loginError;
 		}
 	},
 	setters: {}
