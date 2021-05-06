@@ -10,7 +10,7 @@
   "dependencies": {
     "axios": "^0.18.1",
     "bulma": "^0.7.1",
-    "underscore": "^1.9.1",
+    "underscore": "^1.12.1",
     "vue": "^2.5.16",
     "vue-analytics": "^5.12.2",
     "vue-cookie-law": "^1.6.0",
